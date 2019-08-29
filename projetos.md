@@ -10,4 +10,4 @@
 
 5. Grant, E., Benedetti, M., Cao, S., Hallam, A., Lockhart, J., Stojevic, V., ... & Severini, S. (2018). Hierarchical quantum classifiers. [npj Quantum Information, 4(1), 65](https://www.nature.com/articles/s41534-018-0116-9).
 
-6. Trugenberger, Carlo A. "Probabilistic quantum memories." [Physical Review Letters 87.6](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.87.067901) (2001): 067901. [Code](projetos/pqm)
+6. Trugenberger, Carlo A. "Probabilistic quantum memories." [Physical Review Letters 87.6](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.87.067901) (2001): 067901. [Code](projetos/pqm.py)
