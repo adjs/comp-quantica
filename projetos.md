@@ -11,3 +11,5 @@
 5. Grant, E., Benedetti, M., Cao, S., Hallam, A., Lockhart, J., Stojevic, V., ... & Severini, S. (2018). Hierarchical quantum classifiers. [npj Quantum Information, 4(1), 65](https://www.nature.com/articles/s41534-018-0116-9).
 
 6. Trugenberger, Carlo A. "Probabilistic quantum memories." [Physical Review Letters 87.6](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.87.067901) (2001): 067901. [Code](projetos/pqm.py)
+
+7. Fawaz, Abdulah, et al. "[Training and Meta-Training Binary Neural Networks with Quantum Computing.](http://delivery.acm.org/10.1145/3340000/3330953/p1674-fawaz.pdf?ip=150.161.2.202&id=3330953&acc=OPENTOC&key=344E943C9DC262BB%2ECE287F0A0786CB60%2E4D4702B0C3E38B35%2E9F04A3A78F7D3B8D&__acm__=1569499170_a1ae74a4aa5ab480f436c17769db026f)" Proceedings of the 25th ACM SIGKDD International Conference on Knowledge Discovery & Data Mining. ACM, 2019.
