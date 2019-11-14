@@ -6,7 +6,7 @@ import scipy as sci
 S_simulator = Aer.backends(name='statevector_simulator')[0]
 M_simulator = Aer.backends(name='qasm_simulator')[0]
 
-def Wavefunction(obj, *args, **kwargs):
+def wavefunction(obj, *args, **kwargs):
 	if(type(obj) == QuantumCircuit):
 		statevec = execute(obj, S_simulator, shots=1).result().get_statevector()
 	if(type(obj) == np.ndarray):
@@ -38,12 +38,12 @@ def Wavefunction(obj, *args, **kwargs):
 		else:
 			for ss in np.arange(len(systems)):
 				show_systems.append(True)
-	wavefunction = ''
+	wf = ''
 	qubits = int(m.log(len(statevec), 2))
 	for i in np.arange(int(len(statevec))):
 		value = round(statevec[i].real, dec) + round(statevec[i].imag, dec) * 1j
 		if ((value.real != 0) or (value.imag != 0)):
-			state = list(Binary(int(i), int(2**qubits)))
+			state = list(to_binary(int(i), int(2**qubits)))
 			state_str = ''
 			if (sys == True):
 				k = 0
@@ -64,21 +64,21 @@ def Wavefunction(obj, *args, **kwargs):
 					state_str = state_str + state[j]
 			if ((value.real != 0) and (value.imag != 0)):
 				if (value.imag > 0):
-					wavefunction = wavefunction + str(value.real) + '+' + str(value.imag) + 'j |' + state_str + '>   '
+					wf = wf + str(value.real) + '+' + str(value.imag) + 'j |' + state_str + '>   '
 				else:
-					wavefunction = wavefunction + str(value.real) + '' + str(value.imag) + 'j |' + state_str + '>   '
+					wf = wf + str(value.real) + '' + str(value.imag) + 'j |' + state_str + '>   '
 				
 			if ((value.real != 0) and (value.imag == 0)):
 				state_str = state_str[::-1]
-				wavefunction = wavefunction + str(value.real) + '  |' + state_str + '>   '
+				wf = wf + str(value.real) + '  |' + state_str + '>   '
 			if ((value.real == 0) and (value.imag != 0)):
 				state_str = state_str[::-1]
-				wavefunction = wavefunction + str(value.imag) + 'j  |' + state_str + '>   '
+				wf = wf + str(value.imag) + 'j  |' + state_str + '>   '
 			if (NL):
-				wavefunction = wavefunction + '\n'
-	print(wavefunction)
+				wf = wf + '\n'
+	print(wf)
     
-def Binary(number, total):
+def to_binary(number, total):
     qubits = int(m.log(total, 2))
     N = number
     b_num = np.zeros(qubits)
@@ -91,7 +91,7 @@ def Binary(number, total):
         B.append(int(b_num[j]))
     return B
 
-def Measurement(quantumcircuit, *args, **kwargs):
+def measurement(quantumcircuit, *args, **kwargs):
     p_M = True
     S = 1
     ret = False
