@@ -6,6 +6,7 @@ import numpy as np
 from random import randint
 import sys
 from util import get_possible_inputs
+from itertools import combinations
 
 if not sys.warnoptions:
     import warnings
@@ -78,7 +79,7 @@ def feed_foward(circuit, weights, inputs, outputs, possible_combinations):
       circuit.barrier()
       majority(circuit, len(i), weights[len(i): len(i)*2], weights[len(i)*2 + 1])
       circuit.barrier()
-      majority(circuit, len(i)-1, weights[len(i)*2:], outputs[count])
+      majority(circuit, len(i)-1, weights[len(i)*2:], outputs)
       """ ------ """
 
       """ step foward reverse to reuse the weights on next iteration"""
@@ -100,23 +101,79 @@ def feed_foward(circuit, weights, inputs, outputs, possible_combinations):
   else:
     """ Raise exception implementation """
     raise NotImplementedError
-
+def load_data(data, q_inputs, q_output, circuit):
+  """
+   Loads the data in a quantum circuit with the inputs in superposition
+   data: the data must follow the format [inputs, output], where output is the expected value
+   q_inputs: the quantum register where are the inputs in superposition
+   q_output: the quantum register that must load the expected value
+   circuit: the quantum circuit used to load the data.
+   returns: a quantum circuit with the data loaded.
+  """
+  for row in data:
+      if row[-1] is 1:
+          indexes = [i for i, e in enumerate(row[:-1]) if e == 1]
+          if len(indexes) is 1:
+              circuit.cx(indexes, q_output)
+          elif len(indexes) is 2:
+              circuit.ccx(indexes, q_output)
+          else:
+              for tup in combinations(indexes, 2):
+                  circuit.ccx(tup, q_output)
+  return circuit
 def main():
+
+    prob_1 = [ 
+        [0, 0, 0, 0],
+        [0, 0, 1, 1],
+        [0, 1, 0, 0],
+        [0, 1, 1, 0],
+        [1, 0, 0, 1],
+        [1, 0, 1, 0],
+        [1, 1, 0, 0],
+        [1, 1, 1, 0]
+        ]
+
+
+    prob_2 = [
+        [0, 0, 0, 1],
+        [0, 0, 1, 1],
+        [0, 1, 0, 1],
+        [0, 1, 1, 0],
+        [1, 0, 0, 1],
+        [1, 0, 1, 0],
+        [1, 1, 0, 0],
+        [1, 1, 1, 0]
+    ]
+
     # Supondo que os valores iniciais são |0>
     qW = QuantumRegister(8, name='weights') 
     qI = QuantumRegister(3, name='inputs')
-    c = ClassicalRegister(8)
-    outputs = QuantumRegister(8)
+    c = ClassicalRegister(3)
+    qO = QuantumRegister(1, name='output')
     # Construindo o circuito
-    circuit = QuantumCircuit(qW, qI, outputs, c)
-   
-    possible_inputs = get_possible_inputs(3)
-    feed_foward(circuit, qW, qI, outputs, possible_inputs)
+    circuit = QuantumCircuit(qW, c)
+    load_circuit = QuantumCircuit(qI, qO)
 
+    load_circuit.h(qI)
+    load_circuit = load_data(prob_1, qI, qO, load_circuit)
+
+   
+    circuit += load_circuit
+
+    possible_inputs = get_possible_inputs(3)
+    feed_foward(circuit, qW, qI, qO, possible_inputs)
+
+    unload_circuit = QuantumCircuit(qI, qO)
+    unload_circuit = load_data(prob_1, qI, qO, unload_circuit)
+    
+    unload_circuit.h(qI)
+    circuit += unload_circuit
+    
     # -----------------------------------------
     # Ver o circuit desenhado
     circuit.draw(output="mpl")
-    circuit.measure(outputs, c)
+    circuit.measure(qI, c)
     job = qiskit.execute(circuit, backend)
     result = job.result()
     counts = result.get_counts(circuit)
