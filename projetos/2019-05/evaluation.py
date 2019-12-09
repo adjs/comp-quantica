@@ -5,6 +5,7 @@ from qiskit import *
 import numpy as np
 from random import randint
 import sys
+from util import get_possible_inputs
 
 if not sys.warnoptions:
     import warnings
@@ -39,7 +40,7 @@ def majority(circuit, qtd, qWI, target):
     circuit.ccx(qWI[1], qWI[2], target)
   else:
     """ Raise exception implementation """
-    print("Not implemented yet!")
+    raise NotImplementedError
 
 def init_inputs(circuit, qWI, inputs):
   """
@@ -72,6 +73,7 @@ def feed_foward(circuit, weights, inputs, outputs, possible_combinations):
       circuit.barrier()
       multiply_input_weights(circuit, inputs, weights[len(i):len(i)*2])
       circuit.barrier()
+     
       majority(circuit, len(i), weights[0:len(i)], weights[len(i)*2])
       circuit.barrier()
       majority(circuit, len(i), weights[len(i): len(i)*2], weights[len(i)*2 + 1])
@@ -101,31 +103,21 @@ def feed_foward(circuit, weights, inputs, outputs, possible_combinations):
 
 def main():
     # Supondo que os valores iniciais são |0>
-    qWI = QuantumRegister(7) 
-    c = ClassicalRegister(1)
+    qW = QuantumRegister(8, name='weights') 
+    qI = QuantumRegister(3, name='inputs')
+    c = ClassicalRegister(8)
     outputs = QuantumRegister(8)
     # Construindo o circuito
-    circuit = QuantumCircuit(qWI, c)
-    # definindo a quantidade de inputs
-    qtd_input = 3
-
-    circuit.x(qWI[0])
-    circuit.x(qWI[2])
-    # Então, aqui temos a implementação de um perceptron com 3 entradas.
-    circuit.x(qWI[3:6])
-    multiply_input_weights(circuit, qWI[0:3], qWI[3:])
-    circuit.x(qWI[3:6])
-
-    majority(circuit, qtd_input, qWI[3:6], qWI[6])
-    circuit.measure(qWI[6], c[0])
-
-    feed_foward(circuit, qWI[3:6], qWI[0:3], outputs)
+    circuit = QuantumCircuit(qW, qI, outputs, c)
+   
+    possible_inputs = get_possible_inputs(3)
+    feed_foward(circuit, qW, qI, outputs, possible_inputs)
 
     # -----------------------------------------
     # Ver o circuit desenhado
     circuit.draw(output="mpl")
-    
-    job = qiskit.execute(circuit, backend,)
+    circuit.measure(outputs, c)
+    job = qiskit.execute(circuit, backend)
     result = job.result()
     counts = result.get_counts(circuit)
     print(counts)
