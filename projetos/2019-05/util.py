@@ -66,4 +66,4 @@ def get_results(circ, output, backend=None, shots=1024, circ_name='CIRCUIT'):
 
         qub_chance.append((qub, chance))
 
-    return result
+    return count

@@ -7,6 +7,7 @@ from random import randint
 import sys
 from util import get_possible_inputs, get_results
 from itertools import combinations
+import json
 
 if not sys.warnoptions:
     import warnings
@@ -183,11 +184,12 @@ def main():
         [1, 1, 1, 0]
     ]
 
-    possible_weights = get_possible_inputs(8)
+    experiments = {}
+    experiments['problem'] = 'Problem 1'
     trial = 0
-    for combination in possible_weights:
+    for combination in get_possible_inputs(8):
       trial += 1
-
+     
       print('Trial ', trial, end='')
       print('-'*50)
       print('Testing weights: ', combination)
@@ -209,12 +211,16 @@ def main():
      
       circuit += unload_circuit
       circuit.barrier()
-      get_results(circuit, qI)
+      result = get_results(circuit, qI)
+      
+      result['weights'] = combination
+      experiments[trial] = result
       print()
       print('-'*50)
-      
 
-      breakpoint()
+
+    with open('experiments.json', 'w', encoding='utf-8') as f:
+      json.dump(experiments, f, ensure_ascii=False, indent=4)
       
 
     # -----------------------------------------
