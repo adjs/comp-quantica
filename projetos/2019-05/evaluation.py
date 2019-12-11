@@ -187,6 +187,11 @@ def main():
     trial = 0
     for combination in possible_weights:
       trial += 1
+
+      print('Trial ', trial, end='')
+      print('-'*50)
+      print('Testing weights: ', combination)
+
       # Supondo que os valores iniciais são |0>
       qW = QuantumRegister(8, name='weights') 
       qI = QuantumRegister(3, name='inputs')
@@ -197,9 +202,6 @@ def main():
      
       load_circuit = load_data(prob_1, qI, qO)
       circuit += load_circuit
-      print('Trial ', trial, end='')
-      print('-'*50)
-      print('Testing weights: ', combination)
      
       feed_foward(circuit, qW, qI, qO, combination)
      
