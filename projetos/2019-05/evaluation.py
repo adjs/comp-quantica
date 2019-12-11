@@ -63,8 +63,11 @@ def feed_foward(circuit, weights, inputs, outputs, weights_combination, weight_s
     outputs: qubits where the output of each run will be saved
     possible_combinations: list with all the combinations of possible weights qubits states
   """
+  dj_aux = QuantumRegister(1, name='dj_aux')
+  circuit.add_register(dj_aux)
 
   init_weights(circuit, weights, weights_combination) # Initialize a given weights combination
+
   count = 0
   if len(inputs) == 3:
     circuit.x(weights)
@@ -81,9 +84,14 @@ def feed_foward(circuit, weights, inputs, outputs, weights_combination, weight_s
     majority(circuit, weight_size, weights[weight_size: weight_size*2], weights[weight_size*2 + 1])
     circuit.barrier()
     majority(circuit, weight_size-1, weights[weight_size*2:], outputs)
-    """ ------ """
+    """ ------
+    Evaluation
+    """
+
 
     """ step foward reverse to reuse the weights on next iteration"""
+    circuit.barrier()
+    majority(circuit, weight_size-1, weights[weight_size*2:], outputs)
     circuit.barrier()
     majority(circuit, weight_size, weights[weight_size: weight_size*2], weights[weight_size*2 + 1])
     circuit.barrier()
@@ -155,7 +163,7 @@ def main():
       # Supondo que os valores iniciais são |0>
       qW = QuantumRegister(8, name='weights') 
       qI = QuantumRegister(3, name='inputs')
-      qO = QuantumRegister(8, name='output')
+      qO = QuantumRegister(1, name='output')
       
       c = ClassicalRegister(1)
      
@@ -166,8 +174,10 @@ def main():
       load_circuit.h(qI)
       load_circuit = load_data(prob_1, qI, qO, load_circuit)
       circuit += load_circuit
+
       print('Testing weights: ', combination)
-      
+     
+
       feed_foward(circuit, qW, qI, qO, combination)
       unload_circuit = QuantumCircuit(qI, qO)
       unload_circuit = load_data(prob_1, qI, qO, unload_circuit)
