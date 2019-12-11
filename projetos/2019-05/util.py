@@ -37,3 +37,33 @@ def generate_positions(inputs_size):
         inputs.extend(list(combinations(regs, n_reg)))
     
     return inputs
+
+def get_results(circ, output, backend=None, shots=1024, circ_name='CIRCUIT'):
+    """Shows the results given by the _circuit"""
+
+    if backend is None:
+        backend = Aer.get_backend('qasm_simulator')
+
+    print("RESULT: ", end='')
+
+    clsbits = ClassicalRegister(len(output))
+    circ.add_register(clsbits)
+    circ.measure(output, clsbits)
+    circ.draw(scale=1.0, filename=circ_name)
+    job_sim = execute(experiments=circ, backend=backend, shots=shots)
+
+    result = job_sim.result()
+
+    count = result.get_counts(circ)
+
+    qub_chance = []
+   
+   
+    for qub, cou in zip(count.keys(), count.values()):
+        chance = (cou / shots) * 100
+    
+        print("|{}> -> {:.2f}%".format(qub, chance), end='\t')
+
+        qub_chance.append((qub, chance))
+
+    return qub_chance

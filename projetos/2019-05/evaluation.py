@@ -5,7 +5,7 @@ from qiskit import *
 import numpy as np
 from random import randint
 import sys
-from util import get_possible_inputs
+from util import get_possible_inputs, get_results
 from itertools import combinations
 
 if not sys.warnoptions:
@@ -65,6 +65,8 @@ def feed_foward(circuit, weights, inputs, outputs, weights_combination, weight_s
   """
   dj_aux = QuantumRegister(1, name='dj_aux')
   circuit.add_register(dj_aux)
+  circuit.x(dj_aux)
+  circuit.h(dj_aux)
 
   init_weights(circuit, weights, weights_combination) # Initialize a given weights combination
 
@@ -87,7 +89,7 @@ def feed_foward(circuit, weights, inputs, outputs, weights_combination, weight_s
     """ ------
     Evaluation
     """
-
+    circuit.cx(outputs, dj_aux)
 
     """ step foward reverse to reuse the weights on next iteration"""
     circuit.barrier()
@@ -157,53 +159,42 @@ def main():
     ]
 
     possible_weights = get_possible_inputs(8)
-
+    trial = 0
     for combination in possible_weights:
-
+      trial += 1
       # Supondo que os valores iniciais são |0>
       qW = QuantumRegister(8, name='weights') 
       qI = QuantumRegister(3, name='inputs')
       qO = QuantumRegister(1, name='output')
-      
-      c = ClassicalRegister(1)
-     
+  
       # Construindo o circuito
-      circuit = QuantumCircuit(qW, c)
+      circuit = QuantumCircuit(qW)
       load_circuit = QuantumCircuit(qI, qO)
 
       load_circuit.h(qI)
       load_circuit = load_data(prob_1, qI, qO, load_circuit)
       circuit += load_circuit
-
+      print('Trial ', trial, end='')
+      print('-'*50)
       print('Testing weights: ', combination)
      
-
       feed_foward(circuit, qW, qI, qO, combination)
       unload_circuit = QuantumCircuit(qI, qO)
       unload_circuit = load_data(prob_1, qI, qO, unload_circuit)
-
-     
       unload_circuit.h(qI)
       
       circuit += unload_circuit
       circuit.barrier()
-      circuit.measure([11], c)
-      circuit.draw(filename='load_data')
-      job = qiskit.execute(circuit, backend, shots=1024)
-      result = job.result()
-      counts = result.get_counts(circuit)
-      print(counts)
-      breakpoint()
+      get_results(circuit, qI)
+      print()
+      print('-'*50)
+
+
+    breakpoint()
       
 
     # -----------------------------------------
-    # Ver o circuit desenhado
-    circuit.draw(output="mpl")
-    circuit.measure(qI, c)
-    job = qiskit.execute(circuit, backend)
-    result = job.result()
-    counts = result.get_counts(circuit)
-    print(counts)
+  
 
 
 if __name__ == "__main__":
