@@ -43,7 +43,7 @@ def majority(circuit, qtd, qWI, target):
     """ Raise exception implementation """
     raise NotImplementedError
 
-def init_inputs(circuit, qWI, inputs):
+def init_weights(circuit, qWI, inputs):
   """
     circuit: circuit that must be used to the function
     qWI: list qubits input
@@ -55,52 +55,54 @@ def init_inputs(circuit, qWI, inputs):
       if inputs[i] == 1:
           circuit.x(qWI[i])
 
-def feed_foward(circuit, weights, inputs, outputs, possible_combinations):
+def feed_foward(circuit, weights, inputs, outputs, weights_combination, weight_size=3):
   """
     circuit: circuit that must be used to the function
     weights: qubits must be used to construct and multiply by inputs
     inputs: qubits must be used to construct and multiply by weights
     outputs: qubits where the output of each run will be saved
-    possible_combinations: list with all the combinations of possible entries qubits states
+    possible_combinations: list with all the combinations of possible weights qubits states
   """
+
+  init_weights(circuit, weights, weights_combination) # Initialize a given weights combination
   count = 0
   if len(inputs) == 3:
     circuit.x(weights)
-    for i in possible_combinations:
-      """ step foward """
-      init_inputs(circuit, inputs, i)
-      circuit.barrier()
-      multiply_input_weights(circuit, inputs, weights[0:len(i)])
-      circuit.barrier()
-      multiply_input_weights(circuit, inputs, weights[len(i):len(i)*2])
-      circuit.barrier()
-     
-      majority(circuit, len(i), weights[0:len(i)], weights[len(i)*2])
-      circuit.barrier()
-      majority(circuit, len(i), weights[len(i): len(i)*2], weights[len(i)*2 + 1])
-      circuit.barrier()
-      majority(circuit, len(i)-1, weights[len(i)*2:], outputs)
-      """ ------ """
 
-      """ step foward reverse to reuse the weights on next iteration"""
-      circuit.barrier()
-      majority(circuit, len(i), weights[len(i): len(i)*2], weights[len(i)*2 + 1])
-      circuit.barrier()
-      majority(circuit, len(i), weights[0:len(i)], weights[len(i)*2])
-      circuit.barrier()
-      multiply_input_weights(circuit, inputs, weights[len(i):len(i)*2])
-      circuit.barrier()
-      multiply_input_weights(circuit, inputs, weights[0:len(i)])
-      circuit.barrier()
-      init_inputs(circuit, inputs, i)
-      circuit.barrier()
-      """ ------ """
+    """ step foward """
+    circuit.barrier()
+    multiply_input_weights(circuit, inputs, weights[0:weight_size])
+    circuit.barrier()
+    multiply_input_weights(circuit, inputs, weights[weight_size:weight_size*2])
+    circuit.barrier()
+    
+    majority(circuit, weight_size, weights[0:weight_size], weights[weight_size*2])
+    circuit.barrier()
+    majority(circuit, weight_size, weights[weight_size: weight_size*2], weights[weight_size*2 + 1])
+    circuit.barrier()
+    majority(circuit, weight_size-1, weights[weight_size*2:], outputs)
+    """ ------ """
 
-      count+=1
+    """ step foward reverse to reuse the weights on next iteration"""
+    circuit.barrier()
+    majority(circuit, weight_size, weights[weight_size: weight_size*2], weights[weight_size*2 + 1])
+    circuit.barrier()
+    majority(circuit, weight_size, weights[0:weight_size], weights[weight_size*2])
+    circuit.barrier()
+    multiply_input_weights(circuit, inputs, weights[weight_size:weight_size*2])
+    circuit.barrier()
+    multiply_input_weights(circuit, inputs, weights[0:weight_size])
+    circuit.barrier()
+    init_weights(circuit, weights, weights_combination)
+    circuit.barrier()
+    """ ------ """
+
+    count+=1
     circuit.x(weights)
   else:
     """ Raise exception implementation """
     raise NotImplementedError
+
 def load_data(data, q_inputs, q_output, circuit):
   """
    Loads the data in a quantum circuit with the inputs in superposition
@@ -110,16 +112,16 @@ def load_data(data, q_inputs, q_output, circuit):
    circuit: the quantum circuit used to load the data.
    returns: a quantum circuit with the data loaded.
   """
+  aux = QuantumRegister(1, name='aux')
+  circuit.add_register(aux)
   for row in data:
       if row[-1] is 1:
-          indexes = [i for i, e in enumerate(row[:-1]) if e == 1]
-          if len(indexes) is 1:
-              circuit.cx(indexes, q_output)
-          elif len(indexes) is 2:
-              circuit.ccx(indexes, q_output)
-          else:
-              for tup in combinations(indexes, 2):
-                  circuit.ccx(tup, q_output)
+        indexes_0 = [i for i, e in enumerate(row[:-1]) if e == 0]
+        
+        circuit.x(indexes_0)
+        circuit.mct(q_inputs, q_output[0], aux)
+        circuit.x(indexes_0)
+               
   return circuit
 def main():
 
@@ -146,30 +148,44 @@ def main():
         [1, 1, 1, 0]
     ]
 
-    # Supondo que os valores iniciais são |0>
-    qW = QuantumRegister(8, name='weights') 
-    qI = QuantumRegister(3, name='inputs')
-    c = ClassicalRegister(3)
-    qO = QuantumRegister(1, name='output')
-    # Construindo o circuito
-    circuit = QuantumCircuit(qW, c)
-    load_circuit = QuantumCircuit(qI, qO)
+    possible_weights = get_possible_inputs(8)
 
-    load_circuit.h(qI)
-    load_circuit = load_data(prob_1, qI, qO, load_circuit)
+    for combination in possible_weights:
 
-   
-    circuit += load_circuit
+      # Supondo que os valores iniciais são |0>
+      qW = QuantumRegister(8, name='weights') 
+      qI = QuantumRegister(3, name='inputs')
+      qO = QuantumRegister(8, name='output')
+      
+      c = ClassicalRegister(1)
+     
+      # Construindo o circuito
+      circuit = QuantumCircuit(qW, c)
+      load_circuit = QuantumCircuit(qI, qO)
 
-    possible_inputs = get_possible_inputs(3)
-    feed_foward(circuit, qW, qI, qO, possible_inputs)
+      load_circuit.h(qI)
+      load_circuit = load_data(prob_1, qI, qO, load_circuit)
+      circuit += load_circuit
+      print('Testing weights: ', combination)
+      
+      feed_foward(circuit, qW, qI, qO, combination)
+      unload_circuit = QuantumCircuit(qI, qO)
+      unload_circuit = load_data(prob_1, qI, qO, unload_circuit)
 
-    unload_circuit = QuantumCircuit(qI, qO)
-    unload_circuit = load_data(prob_1, qI, qO, unload_circuit)
-    
-    unload_circuit.h(qI)
-    circuit += unload_circuit
-    
+     
+      unload_circuit.h(qI)
+      
+      circuit += unload_circuit
+      circuit.barrier()
+      circuit.measure([11], c)
+      circuit.draw(filename='load_data')
+      job = qiskit.execute(circuit, backend, shots=1024)
+      result = job.result()
+      counts = result.get_counts(circuit)
+      print(counts)
+      breakpoint()
+      
+
     # -----------------------------------------
     # Ver o circuit desenhado
     circuit.draw(output="mpl")
