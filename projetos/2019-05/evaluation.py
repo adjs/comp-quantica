@@ -211,7 +211,7 @@ def main():
      
       circuit += unload_circuit
       circuit.barrier()
-      result = get_results(circuit, qI)
+      result = get_results(circuit, qI, shots=100)
       
       result['weights'] = combination
       experiments[trial] = result
