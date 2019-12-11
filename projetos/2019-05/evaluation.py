@@ -113,7 +113,7 @@ def feed_foward(circuit, weights, inputs, outputs, weights_combination, weight_s
     """ Raise exception implementation """
     raise NotImplementedError
 
-def load_data(data, q_inputs, q_output, circuit):
+def load_data(data, q_inputs, q_output):
   """
    Loads the data in a quantum circuit with the inputs in superposition
    data: the data must follow the format [inputs, output], where output is the expected value
@@ -123,16 +123,41 @@ def load_data(data, q_inputs, q_output, circuit):
    returns: a quantum circuit with the data loaded.
   """
   aux = QuantumRegister(1, name='aux')
-  circuit.add_register(aux)
+  load_circuit = QuantumCircuit(q_inputs, q_output, aux)
+  load_circuit.h(q_inputs)
+
   for row in data:
       if row[-1] is 1:
         indexes_0 = [i for i, e in enumerate(row[:-1]) if e == 0]
         
-        circuit.x(indexes_0)
-        circuit.mct(q_inputs, q_output[0], aux)
-        circuit.x(indexes_0)
+        load_circuit.x(indexes_0)
+        load_circuit.mct(q_inputs, q_output[0], aux)
+        load_circuit.x(indexes_0)
                
-  return circuit
+  return load_circuit
+
+def unload_data(data, q_inputs, q_output):
+  """
+   Unloads the data in a quantum circuit with the inputs in superposition
+   data: the data must follow the format [inputs, output], where output is the expected value
+   q_inputs: the quantum register where are the inputs in superposition
+   q_output: the quantum register that must load the expected value
+   circuit: the quantum circuit used to load the data.
+   returns: a quantum circuit with the data loaded.
+  """
+  aux = QuantumRegister(1, name='aux')
+  unload_circuit = QuantumCircuit(q_inputs, q_output, aux)
+
+  for row in data:
+      if row[-1] is 1:
+        indexes_0 = [i for i, e in enumerate(row[:-1]) if e == 0]
+        
+        unload_circuit.x(indexes_0)
+        unload_circuit.mct(q_inputs, q_output[0], aux)
+        unload_circuit.x(indexes_0)
+
+  unload_circuit.h(q_inputs)       
+  return unload_circuit
 def main():
 
     prob_1 = [ 
@@ -168,21 +193,18 @@ def main():
       qO = QuantumRegister(1, name='output')
   
       # Construindo o circuito
-      circuit = QuantumCircuit(qW)
-      load_circuit = QuantumCircuit(qI, qO)
-
-      load_circuit.h(qI)
-      load_circuit = load_data(prob_1, qI, qO, load_circuit)
+      circuit = QuantumCircuit(qW, qI, qO)
+     
+      load_circuit = load_data(prob_1, qI, qO)
       circuit += load_circuit
       print('Trial ', trial, end='')
       print('-'*50)
       print('Testing weights: ', combination)
      
       feed_foward(circuit, qW, qI, qO, combination)
-      unload_circuit = QuantumCircuit(qI, qO)
-      unload_circuit = load_data(prob_1, qI, qO, unload_circuit)
-      unload_circuit.h(qI)
-      
+     
+      unload_circuit = unload_data(prob_1, qI, qO)
+     
       circuit += unload_circuit
       circuit.barrier()
       get_results(circuit, qI)
@@ -190,7 +212,7 @@ def main():
       print('-'*50)
 
 
-    breakpoint()
+      breakpoint()
       
 
     # -----------------------------------------
