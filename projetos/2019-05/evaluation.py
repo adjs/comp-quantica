@@ -185,7 +185,7 @@ def main():
     ]
 
     experiments = {}
-    experiments['problem'] = 'Problem 1'
+    experiments['problem'] = 'Problem 2'
     trial = 0
     for combination in get_possible_inputs(8):
       trial += 1
@@ -194,32 +194,35 @@ def main():
       print('-'*50)
       print('Testing weights: ', combination)
 
-      # Supondo que os valores iniciais são |0>
+      # Initializing the registers with |0>
       qW = QuantumRegister(8, name='weights') 
       qI = QuantumRegister(3, name='inputs')
       qO = QuantumRegister(1, name='output')
   
-      # Construindo o circuito
+      # Building the circuit
       circuit = QuantumCircuit(qW, qI, qO)
      
-      load_circuit = load_data(prob_1, qI, qO)
+      # Loading the data
+      load_circuit = load_data(prob_2, qI, qO)
       circuit += load_circuit
      
       feed_foward(circuit, qW, qI, qO, combination)
      
       unload_circuit = unload_data(prob_1, qI, qO)
      
+      # Unload the data
       circuit += unload_circuit
       circuit.barrier()
       result = get_results(circuit, qI, shots=1024)
       
       result['weights'] = combination
-      experiments[trial] = result
+
+      experiments[trial] = {'outcomes': result}
       print()
       print('-'*50)
 
-
-    with open('experiments.json', 'w', encoding='utf-8') as f:
+    file_name = '_'.join(experiments['problem']).lower()
+    with open(file_name+'.json', 'w', encoding='utf-8') as f:
       json.dump(experiments, f, ensure_ascii=False, indent=4)
       
 

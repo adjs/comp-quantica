@@ -64,6 +64,6 @@ def get_results(circ, output, backend=None, shots=1024, circ_name='CIRCUIT'):
     
         print("|{}> -> {:.2f}%".format(qub, chance), end='\t')
 
-        qub_chance.append((qub, chance))
+        count[qub] = '{:.2f}%'.format(chance)
 
     return count
