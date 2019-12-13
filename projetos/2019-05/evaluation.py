@@ -64,7 +64,7 @@ def feed_foward(circuit, weights, inputs, outputs, weights_combination, weight_s
     outputs: qubits where the output of each run will be saved
     possible_combinations: list with all the combinations of possible weights qubits states
   """
-  dj_aux = QuantumRegister(1, name='dj_aux')
+  dj_aux = QuantumRegister(1, name='dj_ancillary')
   circuit.add_register(dj_aux)
   circuit.x(dj_aux)
   circuit.h(dj_aux)
@@ -123,7 +123,7 @@ def load_data(data, q_inputs, q_output):
    circuit: the quantum circuit used to load the data.
    returns: a quantum circuit with the data loaded.
   """
-  aux = QuantumRegister(1, name='aux')
+  aux = QuantumRegister(1, name='mct_ancillary')
   load_circuit = QuantumCircuit(q_inputs, q_output, aux)
   load_circuit.h(q_inputs)
 
@@ -146,7 +146,7 @@ def unload_data(data, q_inputs, q_output):
    circuit: the quantum circuit used to load the data.
    returns: a quantum circuit with the data loaded.
   """
-  aux = QuantumRegister(1, name='aux')
+  aux = QuantumRegister(1, name='mct_ancillary')
   unload_circuit = QuantumCircuit(q_inputs, q_output, aux)
 
   for row in data:
