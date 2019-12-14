@@ -194,9 +194,6 @@ def run_experiment(problem, name='Experiment'):
     # -----------------------------------------
 
 
-
-
-
 def main():
     prob_1 = [
         [0, 0, 0, 0],
