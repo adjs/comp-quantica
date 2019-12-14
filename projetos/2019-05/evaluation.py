@@ -6,7 +6,7 @@ import numpy as np
 from random import randint
 import sys
 from util import get_possible_inputs, get_results
-from itertools import combinations
+from matplotlib import pyplot as plt
 import json
 
 if not sys.warnoptions:
@@ -181,17 +181,51 @@ def run_experiment(problem, name='Experiment'):
         circuit.barrier()
         result = get_results(circuit, qI, shots=1024)
 
-        result['weights'] = combination
-
-        experiments[trial] = {'outcomes': result}
+        experiments[trial] = {'outcomes': result, 'weights': combination}
         print()
         print('-' * 50)
 
-    file_name = '_'.join(name).lower()
+    file_name = name.replace(' ', '_').lower()
     with open(file_name + '.json', 'w', encoding='utf-8') as f:
         json.dump(experiments, f, ensure_ascii=False, indent=4)
 
     # -----------------------------------------
+
+
+def get_w_prob(filename):
+    with open(filename, 'r', encoding='utf-8') as f:
+        experiment = json.loads(f.read())
+
+    w_prob_0 = []
+
+    for result in list(experiment.values())[1:]:
+
+        has_0 = False
+        decimal_weight = int(''.join([str(val) for val in result[1]['weights']]), 2)
+        for qub, prob in result[0]['outcomes'].items():
+
+            if int(qub) is 0:
+                has_0 = True
+                if float(prob.replace('%', ''))/100 is 1.0:
+                    print(prob)
+                    print(result['weights'])
+                w_prob_0.append((decimal_weight, float(prob.replace('%', ''))/100))
+
+        if not has_0:
+            w_prob_0.append((decimal_weight, 0))
+
+    return sorted(w_prob_0, key=lambda tup: tup[1])
+
+
+def graphs(data):
+    x = [tup[1] for tup in data]
+    y = [tup[0] for tup in data]
+
+    plt.xticks(rotation=45)
+    plt.bar(y, x)
+    plt.xlabel('Weights (decimal)')
+    plt.ylabel('Probability of obtain zero')
+    plt.show()
 
 
 def main():
@@ -217,7 +251,9 @@ def main():
         [1, 1, 1, 0]
     ]
 
-    run_experiment(prob_2)
+    # run_experiment(prob_1, 'Problem 1')
+    data = get_w_prob(filename='experiments/problem_2.json')
+    graphs(data)
 
 
 if __name__ == "__main__":
