@@ -231,6 +231,72 @@ the function~\cite{deutsch1992rapid}.
      The probability of obtaining \(z=0\) indicates the probability of our function be constant.}
  \end{figure}
 
+\section{Quantum Neuron Evaluation}\label{sec:classifier-evaluation-with-deutch-josza}
+
+ We made a small scale test using a quantum neuron based on \cite{fawaz2019training} approach and further we evaluated the whole QBNN.
+ We loaded the expected result set it first to one and wherever it should be one we set to zero \cite{fawaz2019training}.
+ This way we will have 1 whatever the neuron yields the correct output and 0 where not just as in the paper we mentioned.
+
+\subsection{Initial Setup}
+
+The initial state consists of \(|\psi_0\rangle = |01\rangle|00\rangle|1\rangle\Big[\frac{|0\rangle - |1\rangle}{\sqrt{2}}\Big]\).
+We are considering in this case the state \(|01\rangle\) as the weights, \(|00\rangle\) the inputs, the expected outcome \(|1\rangle\), and
+\(\Big[\frac{|0\rangle - |1\rangle}{\sqrt{2}}\Big]\) the ancillary qubit.
+Now we can apply the Hadamard operation in the inputs states.
+
+\begin{equation}
+|\psi_1\rangle = |01\rangle\frac{1}{2}(|001\rangle + |011\rangle + |101\rangle + |111\rangle)\Bigg[\frac{|0\rangle - |1\rangle}{\sqrt{2}}\Bigg]
+\end{equation}
+
+After we apply the activation function to obtain the states where it should be zero in the state
+\(|1\rangle\) and where the 1 is the expected output we set it to the state $|0\rangle$.
+This form when we apply the weights and the activation function we will obtain the accuracy entangled with which input making a possible out an evaluation based on the original paper proposal.
+Then \(|\psi_2\rangle\) is given by:
+
+\begin{equation}
+|\psi_2\rangle = |01\rangle\frac{1}{2}(|001\rangle + |010\rangle + |100\rangle + |110\rangle)\Bigg[\frac{|0\rangle - |1\rangle}{\sqrt{2}}\Bigg]
+\end{equation}
+
+\subsection{Oracle Application}\label{subsec:oracle-application}
+
+The oracle that we are considering in this step is our neuron implementation of two inputs and two weights.
+Thus we then apply the weights to every input which are in superposition.
+Differently of~\cite{fawaz2019training} proposal we choose a single set of two qubits to be
+applied in this example its 01.
+The result obtained is the state $|\psi_3\rangle$ shown below
+
+% modificar explicação
+\begin{equation}
+|\psi_3\rangle = |11\rangle\frac{1}{2}(|011\rangle + |000\rangle + |110\rangle + |100\rangle)\Bigg[\frac{|0\rangle - |1\rangle}{\sqrt{2}}\Bigg]
+\end{equation}
+
+At this stage, we must apply the majority function as proposed for \cite{fawaz2019training} and obtain the accuracy of the QBNN
+
+\begin{equation}
+|\psi_4\rangle = |11\rangle\frac{1}{2}(|010\rangle + |000\rangle + |111\rangle + |101\rangle)\Bigg[\frac{|0\rangle - |1\rangle}{\sqrt{2}}\Bigg]
+\end{equation}
+
+It is clear at this point that the QBNN algorithm produced a balanced output marking correctly half part of the answers.
+Then we evaluate the algorithm output by the application of a c-not gate into the ancillary qubit.
+It will change the signal of the states with the correct output such that \((-1)^{f(x)}|x\rangle\).
+
+\begin{equation}
+|\psi_5\rangle = |01\rangle\frac{1}{2}(|010\rangle + |000\rangle - |111\rangle - |101\rangle)\Bigg[\frac{|0\rangle - |1\rangle}{\sqrt{2}}\Bigg]
+\end{equation}
+
+Now considering the reverse order we will apply all the operation before the last c-not gate and obtain the following state.
+
+\begin{equation}
+|\psi_6\rangle = |01\rangle\frac{1}{2}(|001\rangle + |011\rangle - |101\rangle - |111\rangle)\Bigg[\frac{|0\rangle - |1\rangle}{\sqrt{2}}\Bigg]
+\end{equation}
+
+\subsection{Neuron Evaluation}\label{subsec:neuron-evaluation}
+
+Now as part of the evaluation we apply the Hadamard transform again in the input states, just as in equation (3).
+Given the inputs and accuracy \(|010\rangle, |000\rangle, -|110\rangle, -|100\rangle\), after the Hadamard, we will have
+half part of the \(|00\rangle\) states with magnitude +1 and a half with magnitude -1. It will cause the final probability of obtaining 00 be 0\% and something different is measured. Considering our circuit (figure 1) at the end we will have the state \(|01\rangle\) with the amplitude \(\frac{4}{4}\), thus the result will show the probability result of the output register.
+If we have 01 with 100\% it indicates that the function is balanced.
+
 \section{Quantum Binary Neural Networks Evaluation}\label{sec:quantum-binary-neural-networks-evaluation}
 
 \subsection{Initial Considerations}\label{subsec:quantum-neuron-evaluation}
