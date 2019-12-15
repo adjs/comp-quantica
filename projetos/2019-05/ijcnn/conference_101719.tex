@@ -90,8 +90,8 @@ While classical computer solves with complexity \(\mathcal{O}(2^{n})\),
 the Deutsch - Jozsa's algorithm does it with \(\mathcal{O}(1)\) iterations.
 
 This research aims to evaluate the possibility to use data in superposition to evaluate a classifier.
-We use a Quantum Binary Neural Network (QBNN)~\cite{fawaz2019training}, by checking whether all the inputs are correctly classified by using Deutch-Josza's approach.
-Considering that Deutch-Josza's method works for binary functions.
+We use a Quantum Binary Neural Network (QBNN)~\cite{fawaz2019training}, by checking whether all the inputs are correctly
+classified by using Deutch-Josza's approach.
 We adopt the hypothesis of once having a QBNN we use it as the oracle of the Deutch - Josza's algorithm.
 The following sections are
 
@@ -265,9 +265,10 @@ Now we can apply the Hadamard operation in the inputs states and a not gate in t
 |a\rangle
 \end{equation}
 
-After, we load the accuracy for each input.
-It is obtaining the setting to zero the state where must outcome \(|1\rangle\) and one where the
+After, we load the accuracy for each input setting to zero the state where must outcome \(|1\rangle\) and one where the
 expected output is the state $|0\rangle$~\cite{fawaz2019training}.
+It can be achieved using a Toffoli and two not gates.\footnote{Toffoli gates is similar to c-not, but used when we have
+two control qubits and one target~\cite{yanofsky2008quantum}.}
 This form when we apply the weights and the activation function we will obtain the accuracy entangled with which input
 making a possible an evaluation based on the original paper proposal.
 Then \(|\psi_2\rangle\) is given by:
@@ -377,7 +378,10 @@ If we have 00 with 100\% it indicates that the function is constant.
 
     We used the qiskit API~\cite{Qiskit} for the implementation of the QBNN algorithm.
     Further, we test all the possibility of 8 binary weights resulting in 256 simulations.
-    The data was loaded using the mct function with the addition with an ancillary qubit.
+    The data was loaded using the mct function available at~\cite{Qiskit} with the addition with an ancillary qubit.\footnote{
+   The mct or Multiple-Control Toffoli operation is a control operation like c-not generally used when you have more than
+   two qubits as control and one target~\cite{Maslov_2016}
+}
     The reverse operation explained in the last section is achieved applying the same operation in the reverse order.
     The figures 3 and 4 shows the relation of each weight (in the decimal representation)
 
