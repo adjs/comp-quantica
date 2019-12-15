@@ -6,3 +6,5 @@ CIRCUIT
 load_data
 Resumo Artigo Sobre QBNN.ipynb
 /resultados.zip
+!/.ipynb_checkpoints/
+!/auxil/

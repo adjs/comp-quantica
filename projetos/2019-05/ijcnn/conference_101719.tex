@@ -97,8 +97,8 @@ The following sections are
 
 Section~\ref{sec:qc} gives an introduction to quantum computation
 Section~\ref{sec:deutsch-jozsa's-algorithm} gives an introduction of the Deutsch-Jozsa's algorithm
-Section~\ref{sec:quantum-neuron} presents a quantum binary neuron and its evaluation
-Section~\ref{sec:qbnnevaluation} shows the implementation of a QBNN evaluation
+Section~\ref{subsec:quantum-neuron-evaluation} presents a quantum binary neuron and its evaluation
+Section~\ref{sec:quantum-binary-neural-networks-evaluation} shows the implementation of a QBNN evaluation
 Section~\ref{sec:conclusion} presents a final analysis of the results and further directions.
 
 \section{Quantum computing}\label{sec:qc}
@@ -231,74 +231,6 @@ the function~\cite{deutsch1992rapid}.
      The probability of obtaining \(z=0\) indicates the probability of our function be constant.}
  \end{figure}
 
-\section{Quantum Neuron Evaluation}\label{sec:classifier-evaluation-with-deutch-josza}
-
- We made a small scale test using a quantum neuron based on \cite{fawaz2019training} approach and further we evaluated the whole QBNN.
- We loaded the expected result set it first to one and wherever it should be one we set to zero \cite{fawaz2019training}.
- This way we will have 1 whatever the neuron yields the correct output and 0 where not just as in the paper we mentioned.
-
-\subsection{Initial Setup}
-
-The initial state consists of \(|\psi_0\rangle = |01\rangle|00\rangle|1\rangle\Big[\frac{|0\rangle - |1\rangle}{\sqrt{2}}\Big]\).
-We are considering in this case the state \(|01\rangle\) as the weights, \(|00\rangle\) the inputs, the expected outcome \(|1\rangle\), and
-\(\Big[\frac{|0\rangle - |1\rangle}{\sqrt{2}}\Big]\) the ancillary qubit.
-Now we can apply the Hadamard operation in the inputs states.
-
-\begin{equation}
-|\psi_1\rangle = |01\rangle\frac{1}{2}(|001\rangle + |011\rangle + |101\rangle + |111\rangle)\Bigg[\frac{|0\rangle - |1\rangle}{\sqrt{2}}\Bigg]
-\end{equation}
-
-After we apply the activation function to obtain the states where it should be zero in the state
-\(|1\rangle\) and where the 1 is the expected output we set it to the state $|0\rangle$.
-This form when we apply the weights and the activation function we will obtain the accuracy entangled with which input making a possible out an evaluation based on the original paper proposal.
-Then \(|\psi_2\rangle\) is given by:
-
-\begin{equation}
-|\psi_2\rangle = |01\rangle\frac{1}{2}(|001\rangle + |010\rangle + |100\rangle + |110\rangle)\Bigg[\frac{|0\rangle - |1\rangle}{\sqrt{2}}\Bigg]
-\end{equation}
-
-\subsection{Oracle Application}\label{subsec:oracle-application}
-
-The oracle that we are considering in this step is our neuron implementation of two inputs and two weights.
-Thus we then apply the weights to every input which are in superposition.
-Differently of~\cite{fawaz2019training} proposal we choose a single set of two qubits to be
-applied in this example its 01.
-The result obtained is the state $|\psi_3\rangle$ shown below
-
-% modificar explicação
-\begin{equation}
-|\psi_3\rangle = |11\rangle\frac{1}{2}(|011\rangle + |000\rangle + |110\rangle + |100\rangle)\Bigg[\frac{|0\rangle - |1\rangle}{\sqrt{2}}\Bigg]
-\end{equation}
-
-At this stage, we must apply the majority function as proposed for \cite{fawaz2019training} and obtain the accuracy of the QBNN
-
-\begin{equation}
-|\psi_4\rangle = |11\rangle\frac{1}{2}(|010\rangle + |000\rangle + |111\rangle + |101\rangle)\Bigg[\frac{|0\rangle - |1\rangle}{\sqrt{2}}\Bigg]
-\end{equation}
-
-It is clear at this point that the QBNN algorithm produced a balanced output marking correctly half part of the answers.
-Then we evaluate the algorithm output by the application of a c-not gate into the ancillary qubit.
-It will change the signal of the states with the correct output such that \((-1)^{f(x)}|x\rangle\).
-
-\begin{equation}
-|\psi_5\rangle = |01\rangle\frac{1}{2}(|010\rangle + |000\rangle - |111\rangle - |101\rangle)\Bigg[\frac{|0\rangle - |1\rangle}{\sqrt{2}}\Bigg]
-\end{equation}
-
-Now considering the reverse order we will apply all the operation before the last c-not gate and obtain the following state.
-
-\begin{equation}
-|\psi_6\rangle = |01\rangle\frac{1}{2}(|001\rangle + |011\rangle - |101\rangle - |111\rangle)\Bigg[\frac{|0\rangle - |1\rangle}{\sqrt{2}}\Bigg]
-\end{equation}
-
-\subsection{Neuron Evaluation}\label{subsec:neuron-evaluation}
-
-Now as part of the evaluation we apply the Hadamard transform again in the input states, just as in equation (3).
-Given the inputs and accuracy \(|010\rangle, |000\rangle, -|110\rangle, -|100\rangle\), after the Hadamard, we will have
-half part of the \(|00\rangle\) states with magnitude +1 and a half with magnitude -1. It will cause the final probability of obtaining 00 be 0\% and something different is measured. Considering our circuit (figure 1) at the end we will have the state \(|01\rangle\) with the amplitude \(\frac{4}{4}\), thus the result will show the probability result of the output register.
-If we have 01 with 100\% it indicates that the function is balanced.
-
-\section{Quantum Binary Neural Networks Evaluation}\label{sec:quantum-binary-neural-networks-evaluation}
-
 \subsection{Initial Considerations}\label{subsec:quantum-neuron-evaluation}
 
  First, we consider some modification of the ~\cite{fawaz2019training} approach.
@@ -308,7 +240,100 @@ It will allow us to evaluate all the answers for each combination of binary weig
 The second important modification is that instead of use the inputs as control and weights as target in the multiplication
 between weights and inputs we use the weights as control and inputs as target.
 
-\subsection{The Problem}\label{subsec:the-problem2}
+\section{Quantum Neuron Evaluation}\label{sec:quantum-neuron-evaluation}
+
+ We made a small scale test using a quantum neuron based on~\cite{fawaz2019training} approach and further we evaluated
+ the whole QBNN.
+ We loaded the expected result set it first to one and wherever it should be one we set to zero~\cite{fawaz2019training}.
+ This way we will have 1 whatever the neuron yields the correct output and 0 where not just as in the paper we mentioned.
+
+ \subsection*{Toy Problem}
+    We considered a toy problem based on~\cite{fawaz2019training}, where \(sign(x_1 + x_2)\) and the function returns one
+    if \(sign(x_1 + x_2) \geq 0\) and 0, otherwise.\footnote{The values are binary 1 and -1 that are represented as 1
+    and 0 respectively.}
+
+\subsection{Initial Setup}\label{subsec:initial-setup}
+
+
+The initial state consists of \(|\psi_0\rangle = |11\rangle|00\rangle|1\rangle\Big[\frac{|0\rangle - |1\rangle}{\sqrt{2}}\Big]\).
+We are considering in this case the state \(|11\rangle\) as the weights, \(|00\rangle\) the inputs, the expected outcome \(|1\rangle\), and
+\(\Big[\frac{|0\rangle - |1\rangle}{\sqrt{2}}\Big]\) the ancillary qubit.
+Now we can apply the Hadamard operation in the inputs states and a not gate in the weights to load the inputs and the weights.
+
+\begin{equation}
+|\psi_1\rangle = \frac{1}{2}(|00\rangle|000\rangle + |00\rangle|010\rangle + |00\rangle|100\rangle + |00\rangle|110\rangle)
+|a\rangle
+\end{equation}
+
+After, we load the accuracy for each input.
+It is obtaining the setting to zero the state where must outcome \(|1\rangle\) and one where the
+expected output is the state $|0\rangle$~\cite{fawaz2019training}.
+This form when we apply the weights and the activation function we will obtain the accuracy entangled with which input
+making a possible an evaluation based on the original paper proposal.
+Then \(|\psi_2\rangle\) is given by:
+
+\begin{equation}
+|\psi_2\rangle = \frac{1}{2}(|00\rangle|001\rangle + |00\rangle|010\rangle + |00\rangle|100\rangle + |00\rangle|110\rangle)
+|a\rangle
+\end{equation}
+
+\subsection{Oracle Application}\label{subsec:oracle-application}
+
+The oracle that we are considering in this step is our neuron implementation of two inputs and two weights.
+Thus we then apply the weights to every input which are in superposition.
+Differently of~\cite{fawaz2019training} proposal we choose a single set of two qubits to be applied in this example its 11.
+The result obtained is the state $|\psi_3\rangle$ shown below
+
+% modificar explicação
+\begin{equation}
+|\psi_3\rangle = \frac{1}{2}(|00\rangle|001\rangle + |01\rangle|010\rangle + |10\rangle|100\rangle + |11\rangle|110\rangle)
+|a\rangle
+\end{equation}
+
+At this stage, we must apply the majority function as proposed for~\cite{fawaz2019training} and obtain the accuracy of
+the QBNN
+
+\begin{equation}
+|\psi_3\rangle = \frac{1}{2}(|00\rangle|001\rangle + |01\rangle|011\rangle + |10\rangle|101\rangle + |11\rangle|111\rangle)
+|a\rangle
+\end{equation}
+
+It is clear at this point that the QBNN algorithm produced a balanced output marking correctly half part of the answers.
+Then we evaluate the algorithm output by the application of a c-not gate into the ancillary qubit.
+It will change the signal of the states with the correct output such that \((-1)^{f(x)}|x\rangle\).
+
+\begin{equation}
+|\psi_3\rangle = \frac{1}{2}(-|00\rangle|001\rangle - |01\rangle|010\rangle - |10\rangle|100\rangle - |11\rangle|110\rangle)
+|a\rangle
+\end{equation}
+
+Now considering the reverse order we will apply all the operation before the last c-not gate and obtain the following state.
+
+\begin{equation}
+|\psi_3\rangle = |11\rangle\frac{1}{2}(-|001\rangle - |010\rangle - |100\rangle - |110\rangle)
+|a\rangle
+\end{equation}
+
+\subsection{Retrieving Information}\label{subsec:neuron-evaluation}
+
+Now as part of the evaluation we apply the Hadamard transform again in the input states, just as in equation (3).
+Given the inputs and accuracy \(-|001\rangle, -|011\rangle, - |101\rangle, -|111\rangle\), after the Hadamard, we will have
+all \(|00\rangle\) states with magnitude -1.
+Considering our circuit (figure 1) at the end we will have the state \(|00\rangle\) with the amplitude \(\frac{4}{4}\),
+thus the result will show the probability result of the output register.
+If we have 00 with 100\% it indicates that the function is constant.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=9cm, scale=0.5]{images/circuit.pdf}
+    \caption{This figure describes the evaluation procedure introduced in this section.
+    The q[0] and q[1] are the weights, q[2] and q[3] are the inputs and the q[4] is the expected qubit
+    and q[5] is the ancillary register of the Deutsch-Jozsa's algorithm.}\label{Fig:MV}
+\end{figure}
+
+\section{Quantum Binary Neural Networks Evaluation}\label{sec:quantum-binary-neural-networks-evaluation}
+
+\subsection*{The Problem}\label{subsec:the-problem2}
  The problem proposed by~\cite{fawaz2019training} consists of given inputs \((x_1, x_2, x_3)\) the function
   \(sign(x_3*x_1, x_2)\) and \(sign(x_1 + x_2 + x_3)\) return 1 if the result is equal o greater than 0 and -1 otherwise.
 
@@ -346,13 +371,7 @@ between weights and inputs we use the weights as control and inputs as target.
  After, we evaluate the outcome applying the $H^{\otimes n}$ in $(x_1, x_2, x_3)$ again and measuring the outcomes.
 
   % fazer nova imagem
-    \begin{figure}[h!]
-    \centering
-    \includegraphics[width=9cm, scale=0.5]{images/problem_1.pdf}
-    \caption{This figure describes the evaluation procedure introduced in this section.
-    The q[0] and q[1] are the weights, q[2] and q[3] are the inputs and the q[4] is the expected qubit
-    and q[5] is the ancillary register of the Deutsch-Jozsa's algorithm.}\label{Fig:MV}
-    \end{figure}
+
 
 \section{Experiments}\label{sec:experiments}
 
@@ -379,11 +398,13 @@ between weights and inputs we use the weights as control and inputs as target.
 \section{Discussion}\label{sec:discussion}
  The experiments shows that we can have an rapid evaluation of a given Quantum Neural Network architecture using the
 Deutsch - Jozsa algorithm.
-Assuming that the Deutsch - Jozsa's algorithm has complexity \(\mathcal{O}(1)\) it improve the output verification.
-Further, we could discover if a given weight set provides a 100\% hits consuming less computational resources.
+It is clear when seen that the Deutsch - Jozsa's algorithm has complexity \(\mathcal{O}(1)\) and that we load all inputs
+at once and not one by one.
+Further, we could discover if a given weight set provides a 100\% hits consuming less computational resources for storage
+the outputs for example.
 Besides, considering that the today's quantum computer have a qubit constrain and a operation limitations we would improve the
 efficiency of the QBNN allowing it to load a larger amount of data.
-provides a 100\% output
+
 
 \section{Conclusion}\label{sec:conclusion}
 
@@ -393,6 +414,7 @@ provides a 100\% output
   of a rapid evaluation.
   As the first attempt to use Deutsch - Jozsa's algorithm to evaluate a QBNN some question must be addressed such as the
   noise influence in a real quantum device and the evaluation in the case of a QBNN that is neither constant nor balanced.
+
 
 \bibliographystyle{unsrt}
 \bibliography{references}

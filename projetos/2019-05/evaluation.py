@@ -251,7 +251,7 @@ def main():
         [1, 1, 1, 0]
     ]
 
-    # run_experiment(prob_1, 'Problem 1')
+    run_experiment(prob_1, 'Problem 1')
     data = get_w_prob(filename='experiments/problem_2.json')
     graphs(data)
 
