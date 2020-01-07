@@ -23,7 +23,7 @@ def multiply_input_weights(circuit, qWI_control, qWI_controled):
     """
     circuit: circuit that must be used to the function
     qWI_contol and qWI_controled: qubits wich will be used to mutiply eache other
-  """
+    """
     for i in range(len(qWI_control)):
         circuit.cx(qWI_control[i], qWI_controled[i])
 
@@ -34,7 +34,7 @@ def majority(circuit, qtd, qWI, target):
     qtd: quantity of qubits that we will build the function
     qWI: list with qubits that will be used to build the function majority
     target: qubit wich we will set the final result
-  """
+    """
     if qtd == 2:
         circuit.ccx(qWI[0], qWI[1], target)
         circuit.cx(qWI[0], target)
@@ -55,7 +55,7 @@ def init_weights(circuit, qWI, inputs):
     inputs: list with position qubits must start with 1
 
     This function set up the initial state of the qubits
-  """
+    """
     for i in range(len(inputs)):
         if inputs[i] == 1:
             circuit.x(qWI[i])
@@ -68,7 +68,7 @@ def feed_foward(circuit, weights, inputs, outputs, weights_combination, weight_s
     inputs: qubits must be used to construct and multiply by weights
     outputs: qubits where the output of each run will be saved
     possible_combinations: list with all the combinations of possible weights qubits states
-  """
+    """
     dj_aux = QuantumRegister(1, name='dj_ancillary')
     circuit.add_register(dj_aux)
     circuit.x(dj_aux)
@@ -122,16 +122,16 @@ def feed_foward(circuit, weights, inputs, outputs, weights_combination, weight_s
 
 def load_data(data, q_inputs, q_output, unload=False):
     """
-   Loads the data in a quantum circuit with the inputs in superposition
-   data: the data must follow the format [inputs, output], where output is the expected value
-   q_inputs: the quantum register where are the inputs in superposition
-   q_output: the quantum register that must load the expected value
-   circuit: the quantum circuit used to load the data.
-   unload: Decides if the data must be or not unloaded
-   returns: a quantum circuit with the data loaded.
-  """
-    aux = QuantumRegister(1, name='mct_ancillary')
-    load_circuit = QuantumCircuit(q_inputs, q_output, aux)
+    Loads the data in a quantum circuit with the inputs in superposition
+    data: the data must follow the format [inputs, output], where output is the expected value
+    q_inputs: the quantum register where are the inputs in superposition
+    q_output: the quantum register that must load the expected value
+    circuit: the quantum circuit used to load the data.
+    unload: Decides if the data must be or not unloaded
+    returns: a quantum circuit with the data loaded.
+    """
+    
+    load_circuit = QuantumCircuit(q_inputs, q_output)
 
     if not unload:
         load_circuit.h(q_inputs)
@@ -218,6 +218,9 @@ def get_w_prob(filename):
 
 
 def graphs(data):
+    """
+    Create graphs with the output data
+    """
     x = [tup[1] for tup in data]
     y = [tup[0] for tup in data]
 
