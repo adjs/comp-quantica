@@ -141,7 +141,7 @@ def load_data(data, q_inputs, q_output, unload=False):
             indexes_0 = [i for i, e in enumerate(row[:-1]) if e == 0]
 
             load_circuit.x(indexes_0)
-            load_circuit.mct(q_inputs, q_output[0], aux)
+            load_circuit.mct(q_inputs, q_output[0], None, mode="noancilla")
             load_circuit.x(indexes_0)
 
     if unload:
