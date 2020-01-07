@@ -95,11 +95,11 @@ classified by using Deutch-Josza's approach.
 We adopt the hypothesis of once having a QBNN we use it as the oracle of the Deutch - Josza's algorithm.
 The following sections are
 
-Section~\ref{sec:qc} gives an introduction to quantum computation
-Section~\ref{sec:deutsch-jozsa's-algorithm} gives an introduction of the Deutsch-Jozsa's algorithm
-Section~\ref{subsec:quantum-neuron-evaluation} presents a quantum binary neuron and its evaluation
-Section~\ref{sec:quantum-binary-neural-networks-evaluation} shows the implementation of a QBNN evaluation
-Section~\ref{sec:conclusion} presents a final analysis of the results and further directions.
+Section~\ref{sec:qc}: gives an introduction to quantum computation
+Section~\ref{sec:deutsch-jozsa's-algorithm}: gives an introduction of the Deutsch-Jozsa's algorithm
+Section~\ref{subsec:quantum-neuron-evaluation}: presents a quantum binary neuron and its evaluation
+Section~\ref{sec:quantum-binary-neural-networks-evaluation}: shows the implementation of a QBNN evaluation
+Section~\ref{sec:conclusion}: presents a final analysis of the results and further directions.
 
 \section{Quantum computing}\label{sec:qc}
 %qubits, operators, measure, deutch-josza
@@ -118,7 +118,7 @@ to solve with today's classical algorithms~\cite{russon_2017,deutsch1992rapid}.
 \subsection{Qubits and Superposition}\label{subsec:qubits-and-superposition}
 
 \textit{Definition:} Qubits have are different from the bits and thus are represented in a specific form.
-They are represented as \(a|\uparrow\rangle + b|\rightarrow\rangle\), where \(a\) an\(b\) are complex
+They are represented as \(a|\uparrow\rangle + b|\rightarrow\rangle\), where \(a\) and \(b\) are complex
 numbers and \(|\uparrow\rangle\) and \(|\rightarrow\rangle\) are vectors that represents the values:
 
 \[ |0\rangle = \begin{bmatrix} 1 \\ 0\end{bmatrix}  |1\rangle = \begin{bmatrix} 0 \\ 1\end{bmatrix}\]
@@ -234,16 +234,17 @@ the function~\cite{deutsch1992rapid}.
 \subsection{Initial Considerations}\label{subsec:quantum-neuron-evaluation}
 
  First, we consider some modification of the ~\cite{fawaz2019training} approach.
-Differently of the quantum neuron proposed by~\cite{fawaz2019training} we load all inputs and the expected outcome in
+Differently of the quantum neuron proposed by~\cite{fawaz2019training} we load all inputs and the accuracy qubit in
 superposition as in the~\cite{Trugenberger_2001} approach, while that, the weights are loaded one by one.
 It will allow us to evaluate all the answers for each combination of binary weights separately.
-The second important modification is that instead of use the inputs as control and weights as target in the multiplication
-between weights and inputs we use the weights as control and inputs as target.
+The second important modification is that instead of use the weights as control and inputs as target in the multiplication
+between weights and inputs we use the inputs as control and weights as target.
 
 \section{Quantum Neuron Evaluation}\label{sec:quantum-neuron-evaluation}
 
  We made a small scale test using a quantum neuron based on~\cite{fawaz2019training} approach and further we evaluated
- the whole QBNN.
+ the whole QBNN\@.
+ At this stage we are evaluation a quantum neuron with two inputs and weights and its activation function.
  We loaded the expected result set it first to one and wherever it should be one we set to zero~\cite{fawaz2019training}.
  This way we will have 1 whatever the neuron yields the correct output and 0 where not just as in the paper we mentioned.
 
@@ -400,25 +401,25 @@ If we have 00 with 100\% it indicates that the function is constant.
     \end{figure}
 
 \section{Discussion}\label{sec:discussion}
- The experiments shows that we can have an rapid evaluation of a given Quantum Neural Network architecture using the
-Deutsch - Jozsa algorithm.
-It is clear when seen that the Deutsch - Jozsa's algorithm has complexity \(\mathcal{O}(1)\) and that we load all inputs
-at once and not one by one.
-Further, we could discover if a given weight set provides a 100\% hits consuming less computational resources for storage
-the outputs for example.
-Besides, considering that the today's quantum computer have a qubit constrain and a operation limitations we would improve the
-efficiency of the QBNN allowing it to load a larger amount of data.
+ The experiments shows that it was possible to identify specific weights that yields 100\% hits in the QBNN\@ rapidly.
+It simply shows that it's possible to evaluate a given quantum neural binary network consuming less computational resources and
+with less execution as proposed in the original paper~\cite{fawaz2019training}.
+Considering that the today's quantum computer have a qubit constrain and a operation limitations;
+it could be seen as an improvement in the efficiency of the QBNN allowing it to load a larger amount of data as it evaluate
+a specific architecture.
+
 
 
 \section{Conclusion}\label{sec:conclusion}
 
-  In this work, we show that is possible to extract probabilistic information about the accuracy of the
+  In this work, we presented an possible method to extract probabilistic information about the accuracy of the
   Quantum Binary Neural Networks with a single call of the classifier.
   Based on the results, it is possible to verify that the Deutsch - Jozsa's algorithm would be a good option in terms
   of a rapid evaluation.
   As the first attempt to use Deutsch - Jozsa's algorithm to evaluate a QBNN some question must be addressed such as the
   noise influence in a real quantum device and the evaluation in the case of a QBNN that is neither constant nor balanced.
-
+  Moreover, the Deutsch-Jozsa's algorithm could be used as method for quantum training the architecture selection because
+  of its lower computational resource requirement and execution speed.
 
 \bibliographystyle{unsrt}
 \bibliography{references}
