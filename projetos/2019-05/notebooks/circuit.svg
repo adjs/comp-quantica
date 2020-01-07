@@ -1,0 +1,2050 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:osb="http://www.openswatchbook.org/uri/2009/osb"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   data-v-4bc8e763=""
+   id="circuit-k44ginpo"
+   height="330"
+   width="1250"
+   viewBox="0 0 1250 330"
+   version="1.1"
+   sodipodi:docname="circuit.svg"
+   inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
+  <metadata
+     id="metadata2658">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1366"
+     inkscape:window-height="745"
+     id="namedview2656"
+     showgrid="false"
+     inkscape:zoom="0.86210459"
+     inkscape:cx="522.68026"
+     inkscape:cy="179.83053"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="circuit-k44ginpo" />
+  <defs
+     data-v-4bc8e763=""
+     id="defs2033">
+    <linearGradient
+       id="linearGradient3219"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#001800;stop-opacity:1;"
+         offset="0"
+         id="stop3217" />
+    </linearGradient>
+    <style
+       data-v-4bc8e763=""
+       type="text/css"
+       id="style2020"> @font-face { font-family: 'IBM Plex Mono'; src: url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono'); } </style>
+    <filter
+       data-v-4bc8e763=""
+       id="dropshadow"
+       height="140%"
+       width="140%">
+      <feGaussianBlur
+         data-v-4bc8e763=""
+         in="SourceAlpha"
+         stdDeviation="1"
+         id="feGaussianBlur2022" />
+      <feOffset
+         data-v-4bc8e763=""
+         dx="1"
+         dy="2"
+         result="offsetblur"
+         id="feOffset2024" />
+      <feMerge
+         data-v-4bc8e763=""
+         id="feMerge2030">
+        <feMergeNode
+           data-v-4bc8e763=""
+           id="feMergeNode2026" />
+        <feMergeNode
+           data-v-4bc8e763=""
+           in="SourceGraphic"
+           id="feMergeNode2028" />
+      </feMerge>
+    </filter>
+  </defs>
+  <g
+     data-v-4bc8e763=""
+     id="g2119">
+    <g
+       data-v-4bc8e763=""
+       transform="translate(100, 40)"
+       id="g2047">
+      <g
+         data-v-4bc8e763=""
+         transform="translate(-34,-13) scale(0.85)"
+         id="g2043">
+        <g
+           data-v-4bc8e763=""
+           transform="translate(7, 7.5) scale(0.8)"
+           id="g2041">
+          <path
+             data-v-4bc8e763=""
+             fill-rule="evenodd"
+             clip-rule="evenodd"
+             d="M9.5 17.4304H11.5C13.1569 17.4304 14.5 16.0873 14.5 14.4304V6.43042C14.5 4.77357 13.1569 3.43042 11.5 3.43042H9.5C7.84315 3.43042 6.5 4.77357 6.5 6.43042V14.4304C6.5 16.0873 7.84315 17.4304 9.5 17.4304ZM8.5 6.43042C8.5 5.87814 8.94772 5.43042 9.5 5.43042H11.5C12.0523 5.43042 12.5 5.87814 12.5 6.43042V14.4304C12.5 14.9827 12.0523 15.4304 11.5 15.4304H9.5C8.94772 15.4304 8.5 14.9827 8.5 14.4304V6.43042Z"
+             fill="#202529"
+             id="path2035" />
+          <path
+             data-v-4bc8e763=""
+             d="M19.3454 20.4304L17.5 19.5304L22.1907 10.4304L17.5 1.33042L19.3454 0.43042L24.5 10.4304L19.3454 20.4304V20.4304Z"
+             fill="#202529"
+             id="path2037" />
+          <rect
+             data-v-4bc8e763=""
+             x="0.5"
+             y="0.43042"
+             width="2"
+             height="20"
+             fill="#202529"
+             id="rect2039" />
+        </g>
+      </g>
+      <line
+         data-v-4bc8e763=""
+         x1="0"
+         x2="1240"
+         y1="0"
+         y2="0"
+         fill="none"
+         stroke="#979797"
+         style="stroke-width: 1.5; stroke-linecap: round;"
+         id="line2045" />
+    </g>
+    <g
+       data-v-4bc8e763=""
+       transform="translate(100, 80)"
+       id="g2061">
+      <g
+         data-v-4bc8e763=""
+         transform="translate(-34,-13) scale(0.85)"
+         id="g2057">
+        <g
+           data-v-4bc8e763=""
+           transform="translate(7, 7.5) scale(0.8)"
+           id="g2055">
+          <path
+             data-v-4bc8e763=""
+             fill-rule="evenodd"
+             clip-rule="evenodd"
+             d="M9.5 17.4304H11.5C13.1569 17.4304 14.5 16.0873 14.5 14.4304V6.43042C14.5 4.77357 13.1569 3.43042 11.5 3.43042H9.5C7.84315 3.43042 6.5 4.77357 6.5 6.43042V14.4304C6.5 16.0873 7.84315 17.4304 9.5 17.4304ZM8.5 6.43042C8.5 5.87814 8.94772 5.43042 9.5 5.43042H11.5C12.0523 5.43042 12.5 5.87814 12.5 6.43042V14.4304C12.5 14.9827 12.0523 15.4304 11.5 15.4304H9.5C8.94772 15.4304 8.5 14.9827 8.5 14.4304V6.43042Z"
+             fill="#202529"
+             id="path2049" />
+          <path
+             data-v-4bc8e763=""
+             d="M19.3454 20.4304L17.5 19.5304L22.1907 10.4304L17.5 1.33042L19.3454 0.43042L24.5 10.4304L19.3454 20.4304V20.4304Z"
+             fill="#202529"
+             id="path2051" />
+          <rect
+             data-v-4bc8e763=""
+             x="0.5"
+             y="0.43042"
+             width="2"
+             height="20"
+             fill="#202529"
+             id="rect2053" />
+        </g>
+      </g>
+      <line
+         data-v-4bc8e763=""
+         x1="0"
+         x2="1240"
+         y1="0"
+         y2="0"
+         fill="none"
+         stroke="#979797"
+         style="stroke-width: 1.5; stroke-linecap: round;"
+         id="line2059" />
+    </g>
+    <g
+       data-v-4bc8e763=""
+       transform="translate(100, 120)"
+       id="g2075">
+      <g
+         data-v-4bc8e763=""
+         transform="translate(-34,-13) scale(0.85)"
+         id="g2071">
+        <g
+           data-v-4bc8e763=""
+           transform="translate(7, 7.5) scale(0.8)"
+           id="g2069">
+          <path
+             data-v-4bc8e763=""
+             fill-rule="evenodd"
+             clip-rule="evenodd"
+             d="M9.5 17.4304H11.5C13.1569 17.4304 14.5 16.0873 14.5 14.4304V6.43042C14.5 4.77357 13.1569 3.43042 11.5 3.43042H9.5C7.84315 3.43042 6.5 4.77357 6.5 6.43042V14.4304C6.5 16.0873 7.84315 17.4304 9.5 17.4304ZM8.5 6.43042C8.5 5.87814 8.94772 5.43042 9.5 5.43042H11.5C12.0523 5.43042 12.5 5.87814 12.5 6.43042V14.4304C12.5 14.9827 12.0523 15.4304 11.5 15.4304H9.5C8.94772 15.4304 8.5 14.9827 8.5 14.4304V6.43042Z"
+             fill="#202529"
+             id="path2063" />
+          <path
+             data-v-4bc8e763=""
+             d="M19.3454 20.4304L17.5 19.5304L22.1907 10.4304L17.5 1.33042L19.3454 0.43042L24.5 10.4304L19.3454 20.4304V20.4304Z"
+             fill="#202529"
+             id="path2065" />
+          <rect
+             data-v-4bc8e763=""
+             x="0.5"
+             y="0.43042"
+             width="2"
+             height="20"
+             fill="#202529"
+             id="rect2067" />
+        </g>
+      </g>
+      <line
+         data-v-4bc8e763=""
+         x1="0"
+         x2="1240"
+         y1="0"
+         y2="0"
+         fill="none"
+         stroke="#979797"
+         style="stroke-width: 1.5; stroke-linecap: round;"
+         id="line2073" />
+    </g>
+    <g
+       data-v-4bc8e763=""
+       transform="translate(100, 160)"
+       id="g2089">
+      <g
+         data-v-4bc8e763=""
+         transform="translate(-34,-13) scale(0.85)"
+         id="g2085">
+        <g
+           data-v-4bc8e763=""
+           transform="translate(7, 7.5) scale(0.8)"
+           id="g2083">
+          <path
+             data-v-4bc8e763=""
+             fill-rule="evenodd"
+             clip-rule="evenodd"
+             d="M9.5 17.4304H11.5C13.1569 17.4304 14.5 16.0873 14.5 14.4304V6.43042C14.5 4.77357 13.1569 3.43042 11.5 3.43042H9.5C7.84315 3.43042 6.5 4.77357 6.5 6.43042V14.4304C6.5 16.0873 7.84315 17.4304 9.5 17.4304ZM8.5 6.43042C8.5 5.87814 8.94772 5.43042 9.5 5.43042H11.5C12.0523 5.43042 12.5 5.87814 12.5 6.43042V14.4304C12.5 14.9827 12.0523 15.4304 11.5 15.4304H9.5C8.94772 15.4304 8.5 14.9827 8.5 14.4304V6.43042Z"
+             fill="#202529"
+             id="path2077" />
+          <path
+             data-v-4bc8e763=""
+             d="M19.3454 20.4304L17.5 19.5304L22.1907 10.4304L17.5 1.33042L19.3454 0.43042L24.5 10.4304L19.3454 20.4304V20.4304Z"
+             fill="#202529"
+             id="path2079" />
+          <rect
+             data-v-4bc8e763=""
+             x="0.5"
+             y="0.43042"
+             width="2"
+             height="20"
+             fill="#202529"
+             id="rect2081" />
+        </g>
+      </g>
+      <line
+         data-v-4bc8e763=""
+         x1="0"
+         x2="1240"
+         y1="0"
+         y2="0"
+         fill="none"
+         stroke="#979797"
+         style="stroke-width: 1.5; stroke-linecap: round;"
+         id="line2087" />
+    </g>
+    <g
+       data-v-4bc8e763=""
+       transform="translate(100, 200)"
+       id="g2103">
+      <g
+         data-v-4bc8e763=""
+         transform="translate(-34,-13) scale(0.85)"
+         id="g2099">
+        <g
+           data-v-4bc8e763=""
+           transform="translate(7, 7.5) scale(0.8)"
+           id="g2097">
+          <path
+             data-v-4bc8e763=""
+             fill-rule="evenodd"
+             clip-rule="evenodd"
+             d="M9.5 17.4304H11.5C13.1569 17.4304 14.5 16.0873 14.5 14.4304V6.43042C14.5 4.77357 13.1569 3.43042 11.5 3.43042H9.5C7.84315 3.43042 6.5 4.77357 6.5 6.43042V14.4304C6.5 16.0873 7.84315 17.4304 9.5 17.4304ZM8.5 6.43042C8.5 5.87814 8.94772 5.43042 9.5 5.43042H11.5C12.0523 5.43042 12.5 5.87814 12.5 6.43042V14.4304C12.5 14.9827 12.0523 15.4304 11.5 15.4304H9.5C8.94772 15.4304 8.5 14.9827 8.5 14.4304V6.43042Z"
+             fill="#202529"
+             id="path2091" />
+          <path
+             data-v-4bc8e763=""
+             d="M19.3454 20.4304L17.5 19.5304L22.1907 10.4304L17.5 1.33042L19.3454 0.43042L24.5 10.4304L19.3454 20.4304V20.4304Z"
+             fill="#202529"
+             id="path2093" />
+          <rect
+             data-v-4bc8e763=""
+             x="0.5"
+             y="0.43042"
+             width="2"
+             height="20"
+             fill="#202529"
+             id="rect2095" />
+        </g>
+      </g>
+      <line
+         data-v-4bc8e763=""
+         x1="0"
+         x2="1240"
+         y1="0"
+         y2="0"
+         fill="none"
+         stroke="#979797"
+         style="stroke-width: 1.5; stroke-linecap: round;"
+         id="line2101" />
+    </g>
+    <g
+       data-v-4bc8e763=""
+       transform="translate(100, 240)"
+       id="g2117">
+      <g
+         data-v-4bc8e763=""
+         transform="translate(-34,-13) scale(0.85)"
+         id="g2113">
+        <g
+           data-v-4bc8e763=""
+           transform="translate(7, 7.5) scale(0.8)"
+           id="g2111">
+          <path
+             data-v-4bc8e763=""
+             fill-rule="evenodd"
+             clip-rule="evenodd"
+             d="M9.5 17.4304H11.5C13.1569 17.4304 14.5 16.0873 14.5 14.4304V6.43042C14.5 4.77357 13.1569 3.43042 11.5 3.43042H9.5C7.84315 3.43042 6.5 4.77357 6.5 6.43042V14.4304C6.5 16.0873 7.84315 17.4304 9.5 17.4304ZM8.5 6.43042C8.5 5.87814 8.94772 5.43042 9.5 5.43042H11.5C12.0523 5.43042 12.5 5.87814 12.5 6.43042V14.4304C12.5 14.9827 12.0523 15.4304 11.5 15.4304H9.5C8.94772 15.4304 8.5 14.9827 8.5 14.4304V6.43042Z"
+             fill="#202529"
+             id="path2105" />
+          <path
+             data-v-4bc8e763=""
+             d="M19.3454 20.4304L17.5 19.5304L22.1907 10.4304L17.5 1.33042L19.3454 0.43042L24.5 10.4304L19.3454 20.4304V20.4304Z"
+             fill="#202529"
+             id="path2107" />
+          <rect
+             data-v-4bc8e763=""
+             x="0.5"
+             y="0.43042"
+             width="2"
+             height="20"
+             fill="#202529"
+             id="rect2109" />
+        </g>
+      </g>
+      <line
+         data-v-4bc8e763=""
+         x1="0"
+         x2="1240"
+         y1="0"
+         y2="0"
+         fill="none"
+         stroke="#979797"
+         style="stroke-width: 1.5; stroke-linecap: round;"
+         id="line2115" />
+    </g>
+  </g>
+  <g
+     data-v-4bc8e763=""
+     transform="translate(100, 290)"
+     id="g2123">
+    <line
+       data-v-4bc8e763=""
+       x1="0"
+       x2="1240"
+       y1="0"
+       y2="0"
+       fill="none"
+       stroke="#979797"
+       style="stroke-width: 1; stroke-linecap: round;"
+       id="line2121" />
+  </g>
+  <g
+     data-v-7b0c098b=""
+     data-v-4bc8e763=""
+     style="font-family: &quot;IBM Plex Mono&quot;;"
+     id="g2617">
+    <g
+       data-v-7b0c098b=""
+       class="svgGate"
+       id="g2135">
+      <!---->
+      <!---->
+      <g
+         transform="translate(111,24)"
+         id="g2133">
+        <rect
+           width="32"
+           height="32"
+           style="fill: rgb(32, 213, 210);"
+           id="rect2125" />
+        <!---->
+        <text
+           dominant-baseline="alphabetical"
+           x="16"
+           y="22"
+           style="font-size: 19.5px; font-style: normal; fill: rgb(0, 69, 72); font-weight: normal;"
+           id="text2129">
+          <tspan
+             text-anchor="middle"
+             id="tspan2127">X</tspan>
+        </text>
+        <text
+           x="16"
+           y="28"
+           style="font-size: 8.5px; font-style: normal; fill: rgb(0, 69, 72); font-weight: bold;"
+           id="text2131">
+          <!---->
+        </text>
+        <!---->
+      </g>
+      <!---->
+    </g>
+    <g
+       data-v-7b0c098b=""
+       class="svgGate"
+       id="g2147">
+      <!---->
+      <!---->
+      <g
+         transform="translate(111,64)"
+         id="g2145">
+        <rect
+           width="32"
+           height="32"
+           style="fill: rgb(32, 213, 210);"
+           id="rect2137" />
+        <!---->
+        <text
+           dominant-baseline="alphabetical"
+           x="16"
+           y="22"
+           style="font-size: 19.5px; font-style: normal; fill: rgb(0, 69, 72); font-weight: normal;"
+           id="text2141">
+          <tspan
+             text-anchor="middle"
+             id="tspan2139">X</tspan>
+        </text>
+        <text
+           x="16"
+           y="28"
+           style="font-size: 8.5px; font-style: normal; fill: rgb(0, 69, 72); font-weight: bold;"
+           id="text2143">
+          <!---->
+        </text>
+        <!---->
+      </g>
+      <!---->
+    </g>
+    <g
+       data-v-7b0c098b=""
+       class="svgGate"
+       id="g2159">
+      <!---->
+      <!---->
+      <g
+         transform="translate(111,224)"
+         id="g2157">
+        <rect
+           width="32"
+           height="32"
+           style="fill: rgb(32, 213, 210);"
+           id="rect2149" />
+        <!---->
+        <text
+           dominant-baseline="alphabetical"
+           x="16"
+           y="22"
+           style="font-size: 19.5px; font-style: normal; fill: rgb(0, 69, 72); font-weight: normal;"
+           id="text2153">
+          <tspan
+             text-anchor="middle"
+             id="tspan2151">X</tspan>
+        </text>
+        <text
+           x="16"
+           y="28"
+           style="font-size: 8.5px; font-style: normal; fill: rgb(0, 69, 72); font-weight: bold;"
+           id="text2155">
+          <!---->
+        </text>
+        <!---->
+      </g>
+      <!---->
+    </g>
+    <g
+       data-v-7b0c098b=""
+       class="svgGate"
+       id="g2171">
+      <!---->
+      <!---->
+      <g
+         transform="translate(161,224)"
+         id="g2169">
+        <rect
+           width="32"
+           height="32"
+           style="fill: rgb(48, 176, 255);"
+           id="rect2161" />
+        <!---->
+        <text
+           dominant-baseline="alphabetical"
+           x="16"
+           y="22"
+           style="font-size: 19.5px; font-style: normal; fill: rgb(0, 39, 73); font-weight: normal;"
+           id="text2165">
+          <tspan
+             text-anchor="middle"
+             id="tspan2163">H</tspan>
+        </text>
+        <text
+           x="16"
+           y="28"
+           style="font-size: 8.5px; font-style: normal; fill: rgb(0, 39, 73); font-weight: bold;"
+           id="text2167">
+          <!---->
+        </text>
+        <!---->
+      </g>
+      <!---->
+    </g>
+    <g
+       data-v-7b0c098b=""
+       class="svgGate"
+       id="g2179">
+      <g
+         style="fill: rgb(242, 244, 248);"
+         id="g2177">
+        <!---->
+        <!---->
+        <g
+           transform="translate(211,40)"
+           id="g2175">
+          <line
+             x1="16"
+             y1="-16"
+             x2="16"
+             y2="216"
+             style="stroke-width: 4; stroke-dasharray: 15, 5; fill: none; stroke: rgb(19, 23, 26);"
+             id="line2173" />
+          <!---->
+          <!---->
+          <!---->
+        </g>
+        <!---->
+      </g>
+    </g>
+    <g
+       data-v-7b0c098b=""
+       class="svgGate"
+       id="g2191">
+      <!---->
+      <!---->
+      <g
+         transform="translate(261,24)"
+         id="g2189">
+        <rect
+           width="32"
+           height="32"
+           style="fill: rgb(32, 213, 210);"
+           id="rect2181" />
+        <!---->
+        <text
+           dominant-baseline="alphabetical"
+           x="16"
+           y="22"
+           style="font-size: 19.5px; font-style: normal; fill: rgb(0, 69, 72); font-weight: normal;"
+           id="text2185">
+          <tspan
+             text-anchor="middle"
+             id="tspan2183">X</tspan>
+        </text>
+        <text
+           x="16"
+           y="28"
+           style="font-size: 8.5px; font-style: normal; fill: rgb(0, 69, 72); font-weight: bold;"
+           id="text2187">
+          <!---->
+        </text>
+        <!---->
+      </g>
+      <!---->
+    </g>
+    <g
+       data-v-7b0c098b=""
+       class="svgGate"
+       id="g2203">
+      <!---->
+      <!---->
+      <g
+         transform="translate(261,64)"
+         id="g2201">
+        <rect
+           width="32"
+           height="32"
+           style="fill: rgb(32, 213, 210);"
+           id="rect2193" />
+        <!---->
+        <text
+           dominant-baseline="alphabetical"
+           x="16"
+           y="22"
+           style="font-size: 19.5px; font-style: normal; fill: rgb(0, 69, 72); font-weight: normal;"
+           id="text2197">
+          <tspan
+             text-anchor="middle"
+             id="tspan2195">X</tspan>
+        </text>
+        <text
+           x="16"
+           y="28"
+           style="font-size: 8.5px; font-style: normal; fill: rgb(0, 69, 72); font-weight: bold;"
+           id="text2199">
+          <!---->
+        </text>
+        <!---->
+      </g>
+      <!---->
+    </g>
+    <g
+       data-v-7b0c098b=""
+       class="svgGate"
+       id="g2219">
+      <!---->
+      <g
+         id="g2211">
+        <g
+           id="g2209">
+          <line
+             x1="327"
+             y1="120"
+             x2="327"
+             y2="40"
+             style="stroke-width: 4; stroke: rgb(48, 176, 255);"
+             id="line2205" />
+          <circle
+             r="6"
+             cx="327"
+             cy="120"
+             style="fill: rgb(48, 176, 255);"
+             id="circle2207" />
+        </g>
+      </g>
+      <g
+         transform="translate(311,24)"
+         id="g2217">
+        <!---->
+        <circle
+           cx="16"
+           cy="16"
+           r="16"
+           fill="#30B0FF"
+           id="circle2213" />
+        <!---->
+        <!---->
+        <path
+           slot="label"
+           transform="translate(16, 16) scale(0.8)"
+           d="M1.1-1.2v-9.4h-2.2v9.4h-8.8v2.4h8.8v9.4h2.2V1.2h8.8v-2.4H1.1z"
+           fill="#002749"
+           id="path2215" />
+      </g>
+      <!---->
+    </g>
+    <g
+       data-v-7b0c098b=""
+       class="svgGate"
+       id="g2227">
+      <g
+         style="fill: rgb(242, 244, 248);"
+         id="g2225">
+        <!---->
+        <!---->
+        <g
+           transform="translate(361,40)"
+           id="g2223">
+          <line
+             x1="16"
+             y1="-16"
+             x2="16"
+             y2="16"
+             style="stroke-width: 4; stroke-dasharray: 15, 5; fill: none; stroke: rgb(19, 23, 26);"
+             id="line2221" />
+          <!---->
+          <!---->
+          <!---->
+        </g>
+        <!---->
+      </g>
+    </g>
+    <g
+       data-v-7b0c098b=""
+       class="svgGate"
+       id="g2243">
+      <!---->
+      <g
+         id="g2235">
+        <g
+           id="g2233">
+          <line
+             x1="377"
+             y1="160"
+             x2="377"
+             y2="80"
+             style="stroke-width: 4; stroke: rgb(48, 176, 255);"
+             id="line2229" />
+          <circle
+             r="6"
+             cx="377"
+             cy="160"
+             style="fill: rgb(48, 176, 255);"
+             id="circle2231" />
+        </g>
+      </g>
+      <g
+         transform="translate(361,64)"
+         id="g2241">
+        <!---->
+        <circle
+           cx="16"
+           cy="16"
+           r="16"
+           fill="#30B0FF"
+           id="circle2237" />
+        <!---->
+        <!---->
+        <path
+           slot="label"
+           transform="translate(16, 16) scale(0.8)"
+           d="M1.1-1.2v-9.4h-2.2v9.4h-8.8v2.4h8.8v9.4h2.2V1.2h8.8v-2.4H1.1z"
+           fill="#002749"
+           id="path2239" />
+      </g>
+      <!---->
+    </g>
+    <g
+       data-v-7b0c098b=""
+       class="svgGate"
+       id="g2255">
+      <!---->
+      <!---->
+      <g
+         transform="translate(411,24)"
+         id="g2253">
+        <rect
+           width="32"
+           height="32"
+           style="fill: rgb(32, 213, 210);"
+           id="rect2245" />
+        <!---->
+        <text
+           dominant-baseline="alphabetical"
+           x="16"
+           y="22"
+           style="font-size: 19.5px; font-style: normal; fill: rgb(0, 69, 72); font-weight: normal;"
+           id="text2249">
+          <tspan
+             text-anchor="middle"
+             id="tspan2247">X</tspan>
+        </text>
+        <text
+           x="16"
+           y="28"
+           style="font-size: 8.5px; font-style: normal; fill: rgb(0, 69, 72); font-weight: bold;"
+           id="text2251">
+          <!---->
+        </text>
+        <!---->
+      </g>
+      <!---->
+    </g>
+    <g
+       data-v-7b0c098b=""
+       class="svgGate"
+       id="g2267">
+      <!---->
+      <!---->
+      <g
+         transform="translate(411,64)"
+         id="g2265">
+        <rect
+           width="32"
+           height="32"
+           style="fill: rgb(32, 213, 210);"
+           id="rect2257" />
+        <!---->
+        <text
+           dominant-baseline="alphabetical"
+           x="16"
+           y="22"
+           style="font-size: 19.5px; font-style: normal; fill: rgb(0, 69, 72); font-weight: normal;"
+           id="text2261">
+          <tspan
+             text-anchor="middle"
+             id="tspan2259">X</tspan>
+        </text>
+        <text
+           x="16"
+           y="28"
+           style="font-size: 8.5px; font-style: normal; fill: rgb(0, 69, 72); font-weight: bold;"
+           id="text2263">
+          <!---->
+        </text>
+        <!---->
+      </g>
+      <!---->
+    </g>
+    <g
+       data-v-7b0c098b=""
+       class="svgGate"
+       id="g2283">
+      <!---->
+      <g
+         id="g2275">
+        <g
+           id="g2273">
+          <line
+             x1="427"
+             y1="120"
+             x2="427"
+             y2="200"
+             style="stroke-width: 4; stroke: rgb(48, 176, 255);"
+             id="line2269" />
+          <circle
+             r="6"
+             cx="427"
+             cy="120"
+             style="fill: rgb(48, 176, 255);"
+             id="circle2271" />
+        </g>
+      </g>
+      <g
+         transform="translate(411,184)"
+         id="g2281">
+        <!---->
+        <circle
+           cx="16"
+           cy="16"
+           r="16"
+           fill="#30B0FF"
+           id="circle2277" />
+        <!---->
+        <!---->
+        <path
+           slot="label"
+           transform="translate(16, 16) scale(0.8)"
+           d="M1.1-1.2v-9.4h-2.2v9.4h-8.8v2.4h8.8v9.4h2.2V1.2h8.8v-2.4H1.1z"
+           fill="#002749"
+           id="path2279" />
+      </g>
+      <!---->
+    </g>
+    <g
+       data-v-7b0c098b=""
+       class="svgGate"
+       id="g2295">
+      <!---->
+      <!---->
+      <g
+         transform="translate(461,24)"
+         id="g2293">
+        <rect
+           width="32"
+           height="32"
+           style="fill: rgb(32, 213, 210);"
+           id="rect2285" />
+        <!---->
+        <text
+           dominant-baseline="alphabetical"
+           x="16"
+           y="22"
+           style="font-size: 19.5px; font-style: normal; fill: rgb(0, 69, 72); font-weight: normal;"
+           id="text2289">
+          <tspan
+             text-anchor="middle"
+             id="tspan2287">X</tspan>
+        </text>
+        <text
+           x="16"
+           y="28"
+           style="font-size: 8.5px; font-style: normal; fill: rgb(0, 69, 72); font-weight: bold;"
+           id="text2291">
+          <!---->
+        </text>
+        <!---->
+      </g>
+      <!---->
+    </g>
+    <g
+       data-v-7b0c098b=""
+       class="svgGate"
+       id="g2307">
+      <!---->
+      <!---->
+      <g
+         transform="translate(461,64)"
+         id="g2305">
+        <rect
+           width="32"
+           height="32"
+           style="fill: rgb(32, 213, 210);"
+           id="rect2297" />
+        <!---->
+        <text
+           dominant-baseline="alphabetical"
+           x="16"
+           y="22"
+           style="font-size: 19.5px; font-style: normal; fill: rgb(0, 69, 72); font-weight: normal;"
+           id="text2301">
+          <tspan
+             text-anchor="middle"
+             id="tspan2299">X</tspan>
+        </text>
+        <text
+           x="16"
+           y="28"
+           style="font-size: 8.5px; font-style: normal; fill: rgb(0, 69, 72); font-weight: bold;"
+           id="text2303">
+          <!---->
+        </text>
+        <!---->
+      </g>
+      <!---->
+    </g>
+    <g
+       data-v-7b0c098b=""
+       class="svgGate"
+       id="g2323">
+      <!---->
+      <g
+         id="g2315">
+        <g
+           id="g2313">
+          <line
+             x1="477"
+             y1="160"
+             x2="477"
+             y2="200"
+             style="stroke-width: 4; stroke: rgb(48, 176, 255);"
+             id="line2309" />
+          <circle
+             r="6"
+             cx="477"
+             cy="160"
+             style="fill: rgb(48, 176, 255);"
+             id="circle2311" />
+        </g>
+      </g>
+      <g
+         transform="translate(461,184)"
+         id="g2321">
+        <!---->
+        <circle
+           cx="16"
+           cy="16"
+           r="16"
+           fill="#30B0FF"
+           id="circle2317" />
+        <!---->
+        <!---->
+        <path
+           slot="label"
+           transform="translate(16, 16) scale(0.8)"
+           d="M1.1-1.2v-9.4h-2.2v9.4h-8.8v2.4h8.8v9.4h2.2V1.2h8.8v-2.4H1.1z"
+           fill="#002749"
+           id="path2319" />
+      </g>
+      <!---->
+    </g>
+    <g
+       data-v-7b0c098b=""
+       class="svgGate"
+       id="g2345">
+      <!---->
+      <g
+         id="g2337">
+        <g
+           id="g2329">
+          <line
+             x1="527"
+             y1="120"
+             x2="527"
+             y2="200"
+             style="stroke-width: 4; stroke: rgb(146, 76, 252);"
+             id="line2325" />
+          <circle
+             r="6"
+             cx="527"
+             cy="120"
+             style="fill: rgb(146, 76, 252);"
+             id="circle2327" />
+        </g>
+        <g
+           id="g2335">
+          <line
+             x1="527"
+             y1="160"
+             x2="527"
+             y2="120"
+             style="stroke-width: 4; stroke: rgb(146, 76, 252);"
+             id="line2331" />
+          <circle
+             r="6"
+             cx="527"
+             cy="160"
+             style="fill: rgb(146, 76, 252);"
+             id="circle2333" />
+        </g>
+      </g>
+      <g
+         transform="translate(511,184)"
+         id="g2343">
+        <!---->
+        <circle
+           cx="16"
+           cy="16"
+           r="16"
+           fill="#924CFC"
+           id="circle2339" />
+        <!---->
+        <!---->
+        <path
+           slot="label"
+           transform="translate(16, 16) scale(0.8)"
+           d="M1.1-1.2v-9.4h-2.2v9.4h-8.8v2.4h8.8v9.4h2.2V1.2h8.8v-2.4H1.1z"
+           fill="#F2F4F8"
+           id="path2341" />
+      </g>
+      <!---->
+    </g>
+    <g
+       data-v-7b0c098b=""
+       class="svgGate"
+       id="g2361">
+      <!---->
+      <g
+         id="g2353">
+        <g
+           id="g2351">
+          <line
+             x1="577"
+             y1="200"
+             x2="577"
+             y2="240"
+             style="stroke-width: 4; stroke: rgb(48, 176, 255);"
+             id="line2347" />
+          <circle
+             r="6"
+             cx="577"
+             cy="200"
+             style="fill: rgb(48, 176, 255);"
+             id="circle2349" />
+        </g>
+      </g>
+      <g
+         transform="translate(561,224)"
+         id="g2359">
+        <!---->
+        <circle
+           cx="16"
+           cy="16"
+           r="16"
+           fill="#30B0FF"
+           id="circle2355" />
+        <!---->
+        <!---->
+        <path
+           slot="label"
+           transform="translate(16, 16) scale(0.8)"
+           d="M1.1-1.2v-9.4h-2.2v9.4h-8.8v2.4h8.8v9.4h2.2V1.2h8.8v-2.4H1.1z"
+           fill="#002749"
+           id="path2357" />
+      </g>
+      <!---->
+    </g>
+    <g
+       data-v-7b0c098b=""
+       class="svgGate"
+       id="g2383">
+      <!---->
+      <g
+         id="g2375">
+        <g
+           id="g2367">
+          <line
+             x1="627"
+             y1="120"
+             x2="627"
+             y2="200"
+             style="stroke-width: 4; stroke: rgb(146, 76, 252);"
+             id="line2363" />
+          <circle
+             r="6"
+             cx="627"
+             cy="120"
+             style="fill: rgb(146, 76, 252);"
+             id="circle2365" />
+        </g>
+        <g
+           id="g2373">
+          <line
+             x1="627"
+             y1="160"
+             x2="627"
+             y2="120"
+             style="stroke-width: 4; stroke: rgb(146, 76, 252);"
+             id="line2369" />
+          <circle
+             r="6"
+             cx="627"
+             cy="160"
+             style="fill: rgb(146, 76, 252);"
+             id="circle2371" />
+        </g>
+      </g>
+      <g
+         transform="translate(611,184)"
+         id="g2381">
+        <!---->
+        <circle
+           cx="16"
+           cy="16"
+           r="16"
+           fill="#924CFC"
+           id="circle2377" />
+        <!---->
+        <!---->
+        <path
+           slot="label"
+           transform="translate(16, 16) scale(0.8)"
+           d="M1.1-1.2v-9.4h-2.2v9.4h-8.8v2.4h8.8v9.4h2.2V1.2h8.8v-2.4H1.1z"
+           fill="#F2F4F8"
+           id="path2379" />
+      </g>
+      <!---->
+    </g>
+    <g
+       data-v-7b0c098b=""
+       class="svgGate"
+       id="g2399">
+      <!---->
+      <g
+         id="g2391">
+        <g
+           id="g2389">
+          <line
+             x1="677"
+             y1="160"
+             x2="677"
+             y2="200"
+             style="stroke-width: 4; stroke: rgb(48, 176, 255);"
+             id="line2385" />
+          <circle
+             r="6"
+             cx="677"
+             cy="160"
+             style="fill: rgb(48, 176, 255);"
+             id="circle2387" />
+        </g>
+      </g>
+      <g
+         transform="translate(661,184)"
+         id="g2397">
+        <!---->
+        <circle
+           cx="16"
+           cy="16"
+           r="16"
+           fill="#30B0FF"
+           id="circle2393" />
+        <!---->
+        <!---->
+        <path
+           slot="label"
+           transform="translate(16, 16) scale(0.8)"
+           d="M1.1-1.2v-9.4h-2.2v9.4h-8.8v2.4h8.8v9.4h2.2V1.2h8.8v-2.4H1.1z"
+           fill="#002749"
+           id="path2395" />
+      </g>
+      <!---->
+    </g>
+    <g
+       data-v-7b0c098b=""
+       class="svgGate"
+       id="g2415">
+      <!---->
+      <g
+         id="g2407">
+        <g
+           id="g2405">
+          <line
+             x1="727"
+             y1="120"
+             x2="727"
+             y2="200"
+             style="stroke-width: 4; stroke: rgb(48, 176, 255);"
+             id="line2401" />
+          <circle
+             r="6"
+             cx="727"
+             cy="120"
+             style="fill: rgb(48, 176, 255);"
+             id="circle2403" />
+        </g>
+      </g>
+      <g
+         transform="translate(711,184)"
+         id="g2413">
+        <!---->
+        <circle
+           cx="16"
+           cy="16"
+           r="16"
+           fill="#30B0FF"
+           id="circle2409" />
+        <!---->
+        <!---->
+        <path
+           slot="label"
+           transform="translate(16, 16) scale(0.8)"
+           d="M1.1-1.2v-9.4h-2.2v9.4h-8.8v2.4h8.8v9.4h2.2V1.2h8.8v-2.4H1.1z"
+           fill="#002749"
+           id="path2411" />
+      </g>
+      <!---->
+    </g>
+    <g
+       data-v-7b0c098b=""
+       class="svgGate"
+       id="g2431">
+      <!---->
+      <g
+         id="g2423">
+        <g
+           id="g2421">
+          <line
+             x1="777"
+             y1="120"
+             x2="777"
+             y2="40"
+             style="stroke-width: 4; stroke: rgb(48, 176, 255);"
+             id="line2417" />
+          <circle
+             r="6"
+             cx="777"
+             cy="120"
+             style="fill: rgb(48, 176, 255);"
+             id="circle2419" />
+        </g>
+      </g>
+      <g
+         transform="translate(761,24)"
+         id="g2429">
+        <!---->
+        <circle
+           cx="16"
+           cy="16"
+           r="16"
+           fill="#30B0FF"
+           id="circle2425" />
+        <!---->
+        <!---->
+        <path
+           slot="label"
+           transform="translate(16, 16) scale(0.8)"
+           d="M1.1-1.2v-9.4h-2.2v9.4h-8.8v2.4h8.8v9.4h2.2V1.2h8.8v-2.4H1.1z"
+           fill="#002749"
+           id="path2427" />
+      </g>
+      <!---->
+    </g>
+    <g
+       data-v-7b0c098b=""
+       class="svgGate"
+       id="g2439">
+      <g
+         style="fill: rgb(242, 244, 248);"
+         id="g2437">
+        <!---->
+        <!---->
+        <g
+           transform="translate(811,40)"
+           id="g2435">
+          <line
+             x1="16"
+             y1="-16"
+             x2="16"
+             y2="16"
+             style="stroke-width: 4; stroke-dasharray: 15, 5; fill: none; stroke: rgb(19, 23, 26);"
+             id="line2433" />
+          <!---->
+          <!---->
+          <!---->
+        </g>
+        <!---->
+      </g>
+    </g>
+    <g
+       data-v-7b0c098b=""
+       class="svgGate"
+       id="g2455">
+      <!---->
+      <g
+         id="g2447">
+        <g
+           id="g2445">
+          <line
+             x1="827"
+             y1="160"
+             x2="827"
+             y2="80"
+             style="stroke-width: 4; stroke: rgb(48, 176, 255);"
+             id="line2441" />
+          <circle
+             r="6"
+             cx="827"
+             cy="160"
+             style="fill: rgb(48, 176, 255);"
+             id="circle2443" />
+        </g>
+      </g>
+      <g
+         transform="translate(811,64)"
+         id="g2453">
+        <!---->
+        <circle
+           cx="16"
+           cy="16"
+           r="16"
+           fill="#30B0FF"
+           id="circle2449" />
+        <!---->
+        <!---->
+        <path
+           slot="label"
+           transform="translate(16, 16) scale(0.8)"
+           d="M1.1-1.2v-9.4h-2.2v9.4h-8.8v2.4h8.8v9.4h2.2V1.2h8.8v-2.4H1.1z"
+           fill="#002749"
+           id="path2451" />
+      </g>
+      <!---->
+    </g>
+    <g
+       data-v-7b0c098b=""
+       class="svgGate"
+       id="g2467">
+      <!---->
+      <!---->
+      <g
+         transform="translate(861,24)"
+         id="g2465">
+        <rect
+           width="32"
+           height="32"
+           style="fill: rgb(32, 213, 210);"
+           id="rect2457" />
+        <!---->
+        <text
+           dominant-baseline="alphabetical"
+           x="16"
+           y="22"
+           style="font-size: 19.5px; font-style: normal; fill: rgb(0, 69, 72); font-weight: normal;"
+           id="text2461">
+          <tspan
+             text-anchor="middle"
+             id="tspan2459">X</tspan>
+        </text>
+        <text
+           x="16"
+           y="28"
+           style="font-size: 8.5px; font-style: normal; fill: rgb(0, 69, 72); font-weight: bold;"
+           id="text2463">
+          <!---->
+        </text>
+        <!---->
+      </g>
+      <!---->
+    </g>
+    <g
+       data-v-7b0c098b=""
+       class="svgGate"
+       id="g2479">
+      <!---->
+      <!---->
+      <g
+         transform="translate(861,64)"
+         id="g2477">
+        <rect
+           width="32"
+           height="32"
+           style="fill: rgb(32, 213, 210);"
+           id="rect2469" />
+        <!---->
+        <text
+           dominant-baseline="alphabetical"
+           x="16"
+           y="22"
+           style="font-size: 19.5px; font-style: normal; fill: rgb(0, 69, 72); font-weight: normal;"
+           id="text2473">
+          <tspan
+             text-anchor="middle"
+             id="tspan2471">X</tspan>
+        </text>
+        <text
+           x="16"
+           y="28"
+           style="font-size: 8.5px; font-style: normal; fill: rgb(0, 69, 72); font-weight: bold;"
+           id="text2475">
+          <!---->
+        </text>
+        <!---->
+      </g>
+      <!---->
+    </g>
+    <g
+       data-v-7b0c098b=""
+       class="svgGate"
+       id="g2495">
+      <!---->
+      <g
+         id="g2487">
+        <g
+           id="g2485">
+          <line
+             x1="877"
+             y1="160"
+             x2="877"
+             y2="200"
+             style="stroke-width: 4; stroke: rgb(48, 176, 255);"
+             id="line2481" />
+          <circle
+             r="6"
+             cx="877"
+             cy="160"
+             style="fill: rgb(48, 176, 255);"
+             id="circle2483" />
+        </g>
+      </g>
+      <g
+         transform="translate(861,184)"
+         id="g2493">
+        <!---->
+        <circle
+           cx="16"
+           cy="16"
+           r="16"
+           fill="#30B0FF"
+           id="circle2489" />
+        <!---->
+        <!---->
+        <path
+           slot="label"
+           transform="translate(16, 16) scale(0.8)"
+           d="M1.1-1.2v-9.4h-2.2v9.4h-8.8v2.4h8.8v9.4h2.2V1.2h8.8v-2.4H1.1z"
+           fill="#002749"
+           id="path2491" />
+      </g>
+      <!---->
+    </g>
+    <g
+       data-v-7b0c098b=""
+       class="svgGate"
+       id="g2511">
+      <!---->
+      <g
+         id="g2503">
+        <g
+           id="g2501">
+          <line
+             x1="927"
+             y1="120"
+             x2="927"
+             y2="200"
+             style="stroke-width: 4; stroke: rgb(48, 176, 255);"
+             id="line2497" />
+          <circle
+             r="6"
+             cx="927"
+             cy="120"
+             style="fill: rgb(48, 176, 255);"
+             id="circle2499" />
+        </g>
+      </g>
+      <g
+         transform="translate(911,184)"
+         id="g2509">
+        <!---->
+        <circle
+           cx="16"
+           cy="16"
+           r="16"
+           fill="#30B0FF"
+           id="circle2505" />
+        <!---->
+        <!---->
+        <path
+           slot="label"
+           transform="translate(16, 16) scale(0.8)"
+           d="M1.1-1.2v-9.4h-2.2v9.4h-8.8v2.4h8.8v9.4h2.2V1.2h8.8v-2.4H1.1z"
+           fill="#002749"
+           id="path2507" />
+      </g>
+      <!---->
+    </g>
+    <g
+       data-v-7b0c098b=""
+       class="svgGate"
+       id="g2523">
+      <!---->
+      <!---->
+      <g
+         transform="translate(961,104)"
+         id="g2521">
+        <rect
+           width="32"
+           height="32"
+           style="fill: rgb(48, 176, 255);"
+           id="rect2513" />
+        <!---->
+        <text
+           dominant-baseline="alphabetical"
+           x="16"
+           y="22"
+           style="font-size: 19.5px; font-style: normal; fill: rgb(0, 39, 73); font-weight: normal;"
+           id="text2517">
+          <tspan
+             text-anchor="middle"
+             id="tspan2515">H</tspan>
+        </text>
+        <text
+           x="16"
+           y="28"
+           style="font-size: 8.5px; font-style: normal; fill: rgb(0, 39, 73); font-weight: bold;"
+           id="text2519">
+          <!---->
+        </text>
+        <!---->
+      </g>
+      <!---->
+    </g>
+    <g
+       data-v-7b0c098b=""
+       class="svgGate"
+       id="g2535">
+      <!---->
+      <!---->
+      <g
+         transform="translate(961,144)"
+         id="g2533">
+        <rect
+           width="32"
+           height="32"
+           style="fill: rgb(48, 176, 255);"
+           id="rect2525" />
+        <!---->
+        <text
+           dominant-baseline="alphabetical"
+           x="16"
+           y="22"
+           style="font-size: 19.5px; font-style: normal; fill: rgb(0, 39, 73); font-weight: normal;"
+           id="text2529">
+          <tspan
+             text-anchor="middle"
+             id="tspan2527">H</tspan>
+        </text>
+        <text
+           x="16"
+           y="28"
+           style="font-size: 8.5px; font-style: normal; fill: rgb(0, 39, 73); font-weight: bold;"
+           id="text2531">
+          <!---->
+        </text>
+        <!---->
+      </g>
+      <!---->
+    </g>
+    <g
+       data-v-7b0c098b=""
+       class="svgGate"
+       id="g2543">
+      <g
+         style="fill: rgb(242, 244, 248);"
+         id="g2541">
+        <!---->
+        <!---->
+        <g
+           transform="translate(1011,40)"
+           id="g2539">
+          <line
+             x1="16"
+             y1="-16"
+             x2="16"
+             y2="216"
+             style="stroke-width: 4; stroke-dasharray: 15, 5; fill: none; stroke: rgb(19, 23, 26);"
+             id="line2537" />
+          <!---->
+          <!---->
+          <!---->
+        </g>
+        <!---->
+      </g>
+    </g>
+    <g
+       data-v-7b0c098b=""
+       class="svgGate"
+       id="g2567">
+      <g
+         id="g2553">
+        <line
+           x1="1077"
+           y1="200"
+           x2="1077"
+           y2="290"
+           stroke="#979797"
+           style="stroke-width: 1.5;"
+           id="line2545" />
+        <path
+           d="M0,0 L8,0 L4,8 z"
+           fill="#979797"
+           transform="translate(1073 282)"
+           id="path2547" />
+        <text
+           x="1077"
+           y="304"
+           dominant-baseline="alphabetical"
+           style="fill: rgb(0, 0, 0);"
+           id="text2551">
+          <tspan
+             text-anchor="middle"
+             id="tspan2549">0</tspan>
+        </text>
+      </g>
+      <g
+         id="g2565">
+        <!---->
+        <!---->
+        <g
+           transform="translate(1061,184)"
+           id="g2563">
+          <rect
+             width="32"
+             height="32"
+             style="fill: rgb(32, 37, 41);"
+             id="rect2555" />
+          <!---->
+          <!---->
+          <!---->
+          <g
+             transform="scale(0.9) translate(4,5)"
+             id="g2561">
+            <path
+               d="M28.5 0.43042H22.5V2.43042H25.88L22.5 6.43042V8.43042H28.5V6.43042H25.12L28.5 2.43042V0.43042V0.43042Z"
+               fill="#F2F4F8"
+               id="path2557" />
+            <path
+               d="M18.5 14.0504L20.58 10.4304L18.85 9.43042L16.67 13.2004C12.9909 11.8369 8.87757 12.3582 5.65489 14.5964C2.4322 16.8345 0.507243 20.5068 0.5 24.4304H2.5C2.50244 21.2177 4.04826 18.2019 6.655 16.324C9.26174 14.4462 12.6119 13.9352 15.66 14.9504L12.5 20.4304C11.5946 20.4295 10.8015 21.0369 10.5665 21.9113C10.3315 22.7856 10.7132 23.7088 11.4971 24.1619C12.2809 24.615 13.2714 24.485 13.9118 23.845C14.5522 23.2049 14.6827 22.2145 14.23 21.4304L17.5 15.7804C20.5908 17.5649 22.4963 20.8614 22.5 24.4304H24.5C24.4956 20.1476 22.209 16.1918 18.5 14.0504Z"
+               fill="#F2F4F8"
+               id="path2559" />
+          </g>
+        </g>
+        <!---->
+      </g>
+    </g>
+    <g
+       data-v-7b0c098b=""
+       class="svgGate"
+       id="g2591">
+      <g
+         id="g2577">
+        <line
+           x1="1127"
+           y1="160"
+           x2="1127"
+           y2="290"
+           stroke="#979797"
+           style="stroke-width: 1.5;"
+           id="line2569" />
+        <path
+           d="M0,0 L8,0 L4,8 z"
+           fill="#979797"
+           transform="translate(1123 282)"
+           id="path2571" />
+        <text
+           x="1127"
+           y="304"
+           dominant-baseline="alphabetical"
+           style="fill: rgb(0, 0, 0);"
+           id="text2575">
+          <tspan
+             text-anchor="middle"
+             id="tspan2573">1</tspan>
+        </text>
+      </g>
+      <g
+         id="g2589">
+        <!---->
+        <!---->
+        <g
+           transform="translate(1111,144)"
+           id="g2587">
+          <rect
+             width="32"
+             height="32"
+             style="fill: rgb(32, 37, 41);"
+             id="rect2579" />
+          <!---->
+          <!---->
+          <!---->
+          <g
+             transform="scale(0.9) translate(4,5)"
+             id="g2585">
+            <path
+               d="M28.5 0.43042H22.5V2.43042H25.88L22.5 6.43042V8.43042H28.5V6.43042H25.12L28.5 2.43042V0.43042V0.43042Z"
+               fill="#F2F4F8"
+               id="path2581" />
+            <path
+               d="M18.5 14.0504L20.58 10.4304L18.85 9.43042L16.67 13.2004C12.9909 11.8369 8.87757 12.3582 5.65489 14.5964C2.4322 16.8345 0.507243 20.5068 0.5 24.4304H2.5C2.50244 21.2177 4.04826 18.2019 6.655 16.324C9.26174 14.4462 12.6119 13.9352 15.66 14.9504L12.5 20.4304C11.5946 20.4295 10.8015 21.0369 10.5665 21.9113C10.3315 22.7856 10.7132 23.7088 11.4971 24.1619C12.2809 24.615 13.2714 24.485 13.9118 23.845C14.5522 23.2049 14.6827 22.2145 14.23 21.4304L17.5 15.7804C20.5908 17.5649 22.4963 20.8614 22.5 24.4304H24.5C24.4956 20.1476 22.209 16.1918 18.5 14.0504Z"
+               fill="#F2F4F8"
+               id="path2583" />
+          </g>
+        </g>
+        <!---->
+      </g>
+    </g>
+    <g
+       data-v-7b0c098b=""
+       class="svgGate"
+       id="g2615">
+      <g
+         id="g2601">
+        <line
+           x1="1177"
+           y1="120"
+           x2="1177"
+           y2="290"
+           stroke="#979797"
+           style="stroke-width: 1.5;"
+           id="line2593" />
+        <path
+           d="M0,0 L8,0 L4,8 z"
+           fill="#979797"
+           transform="translate(1173 282)"
+           id="path2595" />
+        <text
+           x="1177"
+           y="304"
+           dominant-baseline="alphabetical"
+           style="fill: rgb(0, 0, 0);"
+           id="text2599">
+          <tspan
+             text-anchor="middle"
+             id="tspan2597">0</tspan>
+        </text>
+      </g>
+      <g
+         id="g2613">
+        <!---->
+        <!---->
+        <g
+           transform="translate(1161,104)"
+           id="g2611">
+          <rect
+             width="32"
+             height="32"
+             style="fill: rgb(32, 37, 41);"
+             id="rect2603" />
+          <!---->
+          <!---->
+          <!---->
+          <g
+             transform="scale(0.9) translate(4,5)"
+             id="g2609">
+            <path
+               d="M28.5 0.43042H22.5V2.43042H25.88L22.5 6.43042V8.43042H28.5V6.43042H25.12L28.5 2.43042V0.43042V0.43042Z"
+               fill="#F2F4F8"
+               id="path2605" />
+            <path
+               d="M18.5 14.0504L20.58 10.4304L18.85 9.43042L16.67 13.2004C12.9909 11.8369 8.87757 12.3582 5.65489 14.5964C2.4322 16.8345 0.507243 20.5068 0.5 24.4304H2.5C2.50244 21.2177 4.04826 18.2019 6.655 16.324C9.26174 14.4462 12.6119 13.9352 15.66 14.9504L12.5 20.4304C11.5946 20.4295 10.8015 21.0369 10.5665 21.9113C10.3315 22.7856 10.7132 23.7088 11.4971 24.1619C12.2809 24.615 13.2714 24.485 13.9118 23.845C14.5522 23.2049 14.6827 22.2145 14.23 21.4304L17.5 15.7804C20.5908 17.5649 22.4963 20.8614 22.5 24.4304H24.5C24.4956 20.1476 22.209 16.1918 18.5 14.0504Z"
+               fill="#F2F4F8"
+               id="path2607" />
+          </g>
+        </g>
+        <!---->
+      </g>
+    </g>
+  </g>
+  <g
+     data-v-4bc8e763=""
+     transform="translate(-5 0)"
+     class="fixedLabels"
+     id="g2647">
+    <rect
+       data-v-4bc8e763=""
+       x="0"
+       y="0"
+       width="70"
+       height="330"
+       style="fill: white;"
+       id="rect2619" />
+    <g
+       data-v-4bc8e763=""
+       id="g2645">
+      <g
+         data-v-4bc8e763=""
+         transform="translate(
+              65,
+              45
+            )"
+         class="registerLabel"
+         id="g2623">
+        <!---->
+        <text
+           data-v-4bc8e763=""
+           text-anchor="end"
+           font-family="'IBM Plex Mono'"
+           font-size="14px"
+           font-weight="bold"
+           fill="#565656"
+           class="small"
+           id="text2621"> q[0] </text>
+        <!---->
+      </g>
+      <g
+         data-v-4bc8e763=""
+         transform="translate(
+              65,
+              85
+            )"
+         class="registerLabel"
+         id="g2627">
+        <!---->
+        <text
+           data-v-4bc8e763=""
+           text-anchor="end"
+           font-family="'IBM Plex Mono'"
+           font-size="14px"
+           font-weight="bold"
+           fill="#565656"
+           class="small"
+           id="text2625"> q[1] </text>
+        <!---->
+      </g>
+      <g
+         data-v-4bc8e763=""
+         transform="translate(
+              65,
+              125
+            )"
+         class="registerLabel"
+         id="g2631">
+        <!---->
+        <text
+           data-v-4bc8e763=""
+           text-anchor="end"
+           font-family="'IBM Plex Mono'"
+           font-size="14px"
+           font-weight="bold"
+           fill="#565656"
+           class="small"
+           id="text2629"> q[2] </text>
+        <!---->
+      </g>
+      <g
+         data-v-4bc8e763=""
+         transform="translate(
+              65,
+              165
+            )"
+         class="registerLabel"
+         id="g2635">
+        <!---->
+        <text
+           data-v-4bc8e763=""
+           text-anchor="end"
+           font-family="'IBM Plex Mono'"
+           font-size="14px"
+           font-weight="bold"
+           fill="#565656"
+           class="small"
+           id="text2633"> q[3] </text>
+        <!---->
+      </g>
+      <g
+         data-v-4bc8e763=""
+         transform="translate(
+              65,
+              205
+            )"
+         class="registerLabel"
+         id="g2639">
+        <!---->
+        <text
+           data-v-4bc8e763=""
+           text-anchor="end"
+           font-family="'IBM Plex Mono'"
+           font-size="14px"
+           font-weight="bold"
+           fill="#565656"
+           class="small"
+           id="text2637"> q[4] </text>
+        <!---->
+      </g>
+      <g
+         data-v-4bc8e763=""
+         transform="translate(
+              65,
+              245
+            )"
+         class="registerLabel"
+         id="g2643">
+        <!---->
+        <text
+           data-v-4bc8e763=""
+           text-anchor="end"
+           font-family="'IBM Plex Mono'"
+           font-size="14px"
+           font-weight="bold"
+           fill="#565656"
+           class="small"
+           id="text2641"> q[5] </text>
+        <!---->
+      </g>
+      <!---->
+    </g>
+  </g>
+  <g
+     data-v-4bc8e763=""
+     id="g2653">
+    <g
+       data-v-4bc8e763=""
+       id="g2651">
+      <text
+         data-v-4bc8e763=""
+         x="65"
+         y="295"
+         text-anchor="end"
+         font-family="'IBM Plex Mono'"
+         font-size="14px"
+         font-weight="bold"
+         fill="#565656"
+         class="small"
+         id="text2649"> c2 </text>
+    </g>
+  </g>
+  <rect
+     style="fill:#cccccc;stroke:none;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:9, 3;stroke-dashoffset:0;stroke-opacity:1"
+     id="rect3205"
+     width="123.66125"
+     height="100.49683"
+     x="99.049568"
+     y="103.06839"
+     ry="6.1702361" />
+  <rect
+     style="fill:#cccccc;stroke:none;stroke-width:3.01222062;stroke-miterlimit:4;stroke-dasharray:9.03666141, 3.01222047;stroke-dashoffset:0;stroke-opacity:1"
+     id="rect3207"
+     width="286.49738"
+     height="220.16354"
+     x="261"
+     y="24"
+     ry="6.1702399" />
+  <rect
+     style="fill:#cccccc;stroke:none;stroke-width:2.78722239;stroke-miterlimit:4;stroke-dasharray:8.36166737, 2.78722245;stroke-dashoffset:0;stroke-opacity:1"
+     id="rect3207-9"
+     width="237.77937"
+     height="227.12326"
+     x="606.08032"
+     y="18.086567"
+     ry="6.3652906" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:23.1420517px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.57855129"
+     x="143.29649"
+     y="129.69264"
+     id="text3240"
+     transform="scale(0.78389989,1.2756731)"><tspan
+       sodipodi:role="line"
+       id="tspan3238"
+       x="143.29649"
+       y="129.69264"
+       style="stroke-width:0.57855129">Load data</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:29.27662659px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.73191565"
+     x="403.43658"
+     y="107.3922"
+     id="text3244"
+     transform="scale(0.73191568,1.3662776)"><tspan
+       sodipodi:role="line"
+       id="tspan3242"
+       x="403.43658"
+       y="107.3922"
+       style="stroke-width:0.73191565">Neuron application</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:29.27662659px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.73191565"
+     x="846.00055"
+     y="101.98529"
+     id="text3244-4"
+     transform="scale(0.73191568,1.3662776)"><tspan
+       sodipodi:role="line"
+       id="tspan3242-0"
+       x="846.00055"
+       y="101.98529"
+       style="stroke-width:0.73191565">Neuron application</tspan></text>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:24.04774284px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.60119355"
+     x="812.10535"
+     y="171.27101"
+     id="text3244-2"
+     transform="scale(0.82834835,1.2072216)"
+     inkscape:transform-center-x="32.349432"
+     inkscape:transform-center-y="-1.6837173"><tspan
+       sodipodi:role="line"
+       id="tspan3242-5"
+       x="812.10535"
+       y="171.27101"
+       style="stroke-width:0.60119355">Reverse</tspan></text>
+  <rect
+     style="fill:#cccccc;stroke:none;stroke-width:3.68694258;stroke-miterlimit:4;stroke-dasharray:11.06082791, 3.68694264;stroke-dashoffset:0;stroke-opacity:1"
+     id="rect3205-8"
+     width="156.13991"
+     height="120.21602"
+     x="849.40045"
+     y="101.79976"
+     ry="7.3809414" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:23.1420517px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.57855129"
+     x="1108.4973"
+     y="131.81943"
+     id="text3240-6"
+     transform="scale(0.78389989,1.2756731)"><tspan
+       sodipodi:role="line"
+       id="tspan3238-2"
+       x="1108.4973"
+       y="131.81943"
+       style="stroke-width:0.57855129">Unload data</tspan></text>
+</svg>
