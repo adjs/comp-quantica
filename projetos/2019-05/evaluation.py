@@ -151,6 +151,13 @@ def load_data(data, q_inputs, q_output, unload=False):
 
 
 def run_experiment(problem, name='Experiment'):
+
+    """
+    Executes the experiment for a given dataset and saves the results
+    :param problem: an array containing an vector with the inputs besides the label [input, label]
+    :param name: Name of the experiment
+    :return: nothing
+    """
     experiments = {'problem': name}
     trial = 0
     for combination in get_possible_inputs(8):
@@ -181,7 +188,8 @@ def run_experiment(problem, name='Experiment'):
         circuit.barrier()
         result = get_results(circuit, qI, shots=1024)
 
-        experiments[trial] = {'outcomes': result, 'weights': combination}
+        experiments[trial] = {'outcomes': result,
+                              'weights': combination}
         print()
         print('-' * 50)
 
@@ -255,7 +263,7 @@ def main():
     ]
 
     run_experiment(prob_1, 'Problem 1')
-    data = get_w_prob(filename='experiments/problem_2.json')
+    data = get_w_prob(filename='experiments/problem_1.json')
     graphs(data)
 
 
