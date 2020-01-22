@@ -79,11 +79,9 @@ Evaluating the outcomes of a classification algorithm is one of the most importa
 efficiency~\cite{japkowicz2006question}.
 Time is an important factor, mainly in
 real-time applications that are updated constantly by new data and must have a fast evaluation~\cite{chen2012classifier}.
-To handle this issue, quantum algorithms have shown be able to solve some problems more efficiently than classical algorithms
+To handle this issue, quantum algorithms have shown be able to solve some problems more efficiently than classical ones
 ~\cite{deutsch1992rapid}.
 
-In some cases, quantum algorithms can solve some problems more efficiently than classical algorithms
-~\cite{deutsch1992rapid}.
 One proof of the quantum speedup is the Deutsch-Jozsa's algorithm.
 It is a method to determine whether a binary function is constant or balanced.
 While classical computer solves with complexity \(\mathcal{O}(2^{n})\),
@@ -97,8 +95,10 @@ The following sections are
 
 Section~\ref{sec:qc}: gives an introduction to quantum computation
 Section~\ref{sec:deutsch-jozsa's-algorithm}: gives an introduction of the Deutsch-Jozsa's algorithm
-Section~\ref{subsec:quantum-neuron-evaluation}: presents a quantum binary neuron and its evaluation
-Section~\ref{sec:quantum-binary-neural-networks-evaluation}: shows the implementation of a QBNN evaluation
+Section~\ref{sec:quantum-neuron-evaluation}: presents a quantum binary neuron and its evaluation
+Section~\ref{sec:quantum-binary-neural-networks-evaluation}:gives an overview of the whole algorithm
+Section~\ref{sec:experiments} shows the obtained results
+Section~\ref{sec:discussion} present the paper contribution as a whole
 Section~\ref{sec:conclusion}: presents a final analysis of the results and further directions.
 
 \section{Quantum computing}\label{sec:qc}
@@ -127,7 +127,7 @@ Therefore, we have a probability of \(|a|^2\) to our vector be found at state \(
 \(|b|^2\) in the state \(|1\rangle\).
 When both vectors are not null we say that the qubit is in \textit{superposition}, it means that both states
 \(|0\rangle\) and \(|1\rangle\) are represented simultaneously.
-It can be done with only one qubit or several n qubits at once what is called
+It can be done with only one qubit or several \textit{n} qubits at once what is called
 \textit{superposition of n qubits}~\cite{yanofsky2008quantum,rieffel2014quantum}.
 When we try to handle with a qubit in superposition or not to determine its state we make the
 qubit collapse to one of the state \(|0\rangle\) or \(|1\rangle\) and we call that
@@ -169,34 +169,15 @@ We determine if it is constant (all inputs are always only 0 or 1) or balanced
 
 \subsection{Finding a Solution}\label{subsec:finding-a-solution}
 
- Assuming that we have a binary function \(f: \{{0,1\}}^n \rightarrow  \{0,1\}\).
- A classical solution for this problem would required us to evaluate in the worse case \(2^{n-1} + 1\)
- inputs, thus requiring \(\mathcal{O}(2^{n})\) classical evaluations~\cite{yanofsky2008quantum,deutsch1992rapid}.
-  % N + 1 with N invocations of the function \cite{deutsch1992rapid}
+The solution proposed by~\cite{deutsch1992rapid} considers that \(\{{|a,b\rangle\}}(a \in \{{0,1\}}^n, b \in \{0,1\})\) is an
+orthonormal basis in the Hilbert space~\cite{deutsch1992rapid}.
+The function \(U_f\) can effect the states of the basis that we are using such that \(|a,b\rangle \rightarrow |a,b \oplus f(a) \rangle\),
+where \(\oplus\) is a bit-wise operation~\cite{deutsch1992rapid}.
+It is also considered \textit{n} as a natural number and \(U_f\) is the representation of a binary function as a quantum
+operator.
 
- Even though a classical solution to this problem is costly, the quantum computation can give us a new form to deal with
-the problem.
-A quantum solution is based on the quantum parallelism where we can evaluate different outputs in just one evaluation of
-the function~\cite{deutsch1992rapid}.
- First of all we consider that \(\{{|a,b\rangle\}}(a \in \{{0,1\}}^n, b \in \{0,1\})\) is a orthonormal
- basis in the Hilbert space~\cite{deutsch1992rapid}.
- The function \(U_f\) can effect the states of the
- basis that we are using such that \(|a,b\rangle \rightarrow |a,b \oplus f(a) \rangle\),
- where \(\oplus\) is a bit-wise operation~\cite{deutsch1992rapid}.
-
-
- It is also considered \textit{n} as a natural number and \(U_f\) a function defined as
- \(f:\{{0,1\}}^n \rightarrow \{{0,1\}}\), where \(\{{0,1\}}^n\) is every combination of \(n\) qubits.
-
- Based on the~\cite{deutsch1992rapid} proposal we can affirm certainly that after measuring the qubits
- what will be found is that one of the following statements is true.
-
- 1. \(U_f\) is not constant at 0 or 1.
-
- 2. \(U_f\) gives not zero as response for the in the sequence f(00\dots0), f(00\dots1), \dots, f(0\dots11).
-
- To obtain one of the above results, we follow the hypothesis of having \(|\psi\rangle\) state defined as a
- superposition of many states as follows:
+Following the hypothesis of having \(|\psi\rangle\) state defined as a
+superposition of many states as follows.
 
  \begin{equation}
     |\psi\rangle = \sum_{j=0}^{2n-1} \frac{|\textbf{x},0\rangle}{\sqrt{2^n}}
@@ -214,7 +195,7 @@ the function~\cite{deutsch1992rapid}.
  The function is constant if the magnitude of the inner product is equal to
  \(\pm 1\)~\cite{deutsch1992rapid,yanofsky2008quantum}.
  The function is balanced if the magnitude of the inner product between the initial state \(|\psi\rangle\)
- and \(U_f\) is exactly half part of the states have phase on 1 and the other half on -1.
+ and \(U_f|00\dots0\rangle\) is exactly half part of the states have phase on 1 and the other half on -1.
 
  It will make one-half cancel with another half of qubits and produce some output different from zero after the
  measurement~\cite{deutsch1992rapid,nielsen2002quantum}.
@@ -231,21 +212,24 @@ the function~\cite{deutsch1992rapid}.
      The probability of obtaining \(z=0\) indicates the probability of our function be constant.}
  \end{figure}
 
-\subsection{Initial Considerations}\label{subsec:quantum-neuron-evaluation}
+\section{Quantum Neuron Evaluation}\label{sec:quantum-neuron-evaluation}
+
+\subsection{Initial Considerations}\label{subsec:initial-considerations}
 
  First, we consider some modification of the ~\cite{fawaz2019training} approach.
 Differently of the quantum neuron proposed by~\cite{fawaz2019training} we load all inputs and the accuracy qubit in
 superposition as in the~\cite{Trugenberger_2001} approach, while that, the weights are loaded one by one.
 It will allow us to evaluate all the answers for each combination of binary weights separately.
-The second important modification is that instead of use the weights as control and inputs as target in the multiplication
-between weights and inputs we use the inputs as control and weights as target.
+The second important modification is that we swapped the control and target qubits using the inputs as control and
+weights as target instead of the opposite proposed by~\cite{fawaz2019training}.
 
-\section{Quantum Neuron Evaluation}\label{sec:quantum-neuron-evaluation}
+\subsection{Execution and Evaluation Process}\label{subsec:execution-and-evaluation-process}
 
- We made a small scale test using a quantum neuron based on~\cite{fawaz2019training} approach and further we evaluated
+ We made a small scale test using a quantum neuron, based on~\cite{fawaz2019training} approach and further we evaluated
  the whole QBNN\@.
  At this stage we are evaluation a quantum neuron with two inputs and weights and its activation function.
- We loaded the expected result set it first to one and wherever it should be one we set to zero~\cite{fawaz2019training}.
+ We loaded the expected qubits result setting them first to one where the outcome must be zero and wherever it should
+ be one we set to zero~\cite{fawaz2019training}.
  This way we will have 1 whatever the neuron yields the correct output and 0 where not just as in the paper we mentioned.
 
  \subsection*{Toy Problem}
@@ -268,7 +252,7 @@ Now we can apply the Hadamard operation in the inputs states and a not gate in t
 
 After, we load the accuracy for each input setting to zero the state where must outcome \(|1\rangle\) and one where the
 expected output is the state $|0\rangle$~\cite{fawaz2019training}.
-It can be achieved using a Toffoli and two not gates.\footnote{Toffoli gates is similar to c-not, but used when we have
+It can be achieved using a Toffoli and two not gates.\footnote{The Toffoli gate is similar to c-not, but used when we have
 two control qubits and one target~\cite{yanofsky2008quantum}.}
 This form when we apply the weights and the activation function we will obtain the accuracy entangled with which input
 making a possible an evaluation based on the original paper proposal.
@@ -341,8 +325,7 @@ If we have 00 with 100\% it indicates that the function is constant.
 
  \subsection{Parameters Initialization}\label{subsec:initializaton}
    Given the initial states of the weights, inputs and the expected outcome defined as $|x\rangle$ and $|w\rangle$
- $|o\rangle$ respectively, we also have the ancillary qubit used in the Deutsch - Jozsa algorithm.\footnote[1]{
-  An extra qubit must be added to load the data in the implementation process.}
+ $|o\rangle$ respectively, we also have the ancillary qubit used in the Deutsch - Jozsa algorithm.
  We define a quantum superposition of all possible inputs using the $H^ {\otimes n}$.
  Then the initial state is:
 
@@ -360,13 +343,14 @@ If we have 00 with 100\% it indicates that the function is constant.
 
 \subsection{Quantum Neuron}\label{subsec:quantum-neuron}
   Now differently of~\cite{fawaz2019training} approach, we apply an specific set of weight to the inputs using the
-  anti-C-not gate.
+  Multiple-Control Toffoli (MCT) gate\footnote{The Multiple-Control Toffoli follows the same ideia of the original
+  CNot gate, but its generally used when we have more than two control qubits.} and Not Gates.
   At this step we must apply the activation function that is defined as the majority function.
  This function consists of given 1 if a binary inputs has more ones than zeros.
   Such process is done for every quantum neuron in the QBNN~\cite{fawaz2019training} proposal.
 
 \subsection{Verification}\label{subsec:verification}
-  Now we must apply a c-not gate where the expected outcome qubit is the control and Deutsch - Jozsa ancillary is the target.
+  Now we must apply a CNot gate where the expected outcome qubit is the control and Deutsch - Jozsa ancillary is the target.
  Then each state will flip the sign if the QBNN yield a correct answer and sign will stay the same otherwise.
  We can see it in the form of \((-1)^{f(x)}|x\rangle\), where the QBNN is our function.
  Further, we just need to undo the last operations and unload the data before the evaluation.
@@ -385,10 +369,6 @@ If we have 00 with 100\% it indicates that the function is constant.
 
     We used the qiskit API~\cite{Qiskit} for the implementation of the QBNN algorithm.
     Further, we test all the possibility of 8 binary weights resulting in 256 simulations.
-    The data was loaded using the mct function available at~\cite{Qiskit} with the addition with an ancillary qubit.\footnote{
-   The mct or Multiple-Control Toffoli operation is a control operation like c-not generally used when you have more than
-   two qubits as control and one target~\cite{Maslov_2016}
-}
     The reverse operation explained in the last section is achieved applying the same operation in the reverse order.
     The figures 3 and 4 shows the relation of each weight (in the decimal representation)
 
@@ -407,13 +387,11 @@ If we have 00 with 100\% it indicates that the function is constant.
     \end{figure}
 
 \section{Discussion}\label{sec:discussion}
- The experiments shows that it was possible to identify specific weights that yields 100\% hits in the QBNN\@ rapidly.
-It simply shows that it's possible to evaluate a given quantum neural binary network consuming less computational resources and
-with less execution as proposed in the original paper~\cite{fawaz2019training}.
-Considering that the today's quantum computer have a qubit constrain and a operation limitations;
-it could be seen as an improvement in the efficiency of the QBNN allowing it to load a larger amount of data as it evaluate
-a specific architecture.
-
+The experiments show that it was possible to reach an evaluation method capable to yield important information about the
+hits and misses of a given quantum neural network architecture rapidly.
+Besides, the method achieved is also cost less compared with the original approach.
+We reduced the number of used qubits from more than 14\cite{fawaz2019training} to 12 and implemented a much less costly evaluation algorithm
+in therm of required operations.
 
 
 \section{Conclusion}\label{sec:conclusion}
@@ -424,8 +402,6 @@ a specific architecture.
   of a rapid evaluation.
   As the first attempt to use Deutsch - Jozsa's algorithm to evaluate a QBNN some question must be addressed such as the
   noise influence in a real quantum device and the evaluation in the case of a QBNN that is neither constant nor balanced.
-  Moreover, the Deutsch-Jozsa's algorithm could be used as method for quantum training the architecture selection because
-  of its lower computational resource requirement and execution speed.
 
 \bibliographystyle{unsrt}
 \bibliography{references}
