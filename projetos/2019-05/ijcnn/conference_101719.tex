@@ -129,8 +129,8 @@ When both vectors are not null we say that the qubit is in \textit{superposition
 \(|0\rangle\) and \(|1\rangle\) are represented simultaneously.
 It can be done with only one qubit or several \textit{n} qubits at once what is called
 \textit{superposition of n qubits}~\cite{yanofsky2008quantum,rieffel2014quantum}.
-When we try to handle with a qubit in superposition or not to determine its state we make the
-qubit collapse to one of the state \(|0\rangle\) or \(|1\rangle\) and we call that
+When we try to handle with a qubit in superposition or not to determine its state using a measurement quantum operator
+we make the qubit collapse to one of the state \(|0\rangle\) or \(|1\rangle\) and we call that
 \textit{measurement}~\cite{yanofsky2008quantum,rieffel2014quantum}.
 
 \subsection{Quantum Gates}\label{subsec:quantum-gates}
@@ -390,6 +390,12 @@ If we have 00 with 100\% it indicates that the function is constant.
 
 The experiments show that it was possible to reach an evaluation method capable to yield important information about the
 hits and misses of a given quantum neural network architecture rapidly.
+The information provided shows us the architecture that produces 100\% misses and 100\%. The distinction between both outputs
+can be made extracting the information about the sign of the \(|00\dots0\rangle\) state at the end, due the
+equation \((-1)^{f(x)}|x\rangle\).
+If we find a positive sign, then we know that the architecture produced a 100\% misses and when negative sign is found the
+opposite is true.
+This kind of verification can be easily accomplished changing measurement operator to Pauli-Y.
 Besides, the method achieved is also cost less compared with the original approach.
 We reduced the number of used qubits from more than 14\cite{fawaz2019training} to 12 and implemented a much less costly
 evaluation algorithm in therm of required operations.
