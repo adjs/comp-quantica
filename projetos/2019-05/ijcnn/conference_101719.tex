@@ -75,22 +75,21 @@ quantum computation, quantum binary neural networks, evaluation,
 \end{IEEEkeywords}
 
 \section{Introduction}\label{sec:introduction}
-Evaluating the outcomes of a classification algorithm is one of the most important steps to validate its
+Evaluating the outcomes of a classification algorithm is one of the most significant steps to validate its
 efficiency~\cite{japkowicz2006question}.
-Time is an important factor, mainly in
-real-time applications that are updated constantly by new data and must have a fast evaluation~\cite{chen2012classifier}.
-To handle this issue, quantum algorithms have shown be able to solve some problems more efficiently than classical ones
+Time is an essential factor, mainly in
+real-time applications that are updated constantly by new data and must have a high-speed evaluation~\cite{chen2012classifier}.
+While that,  quantum algorithms have shown be able to solve some problems more efficiently than classical ones
 ~\cite{deutsch1992rapid}.
-
 One proof of the quantum speedup is the Deutsch-Jozsa's algorithm.
 It is a method to determine whether a binary function is constant or balanced.
 While classical computer solves with complexity \(\mathcal{O}(2^{n})\),
 the Deutsch - Jozsa's algorithm does it with \(\mathcal{O}(1)\) iterations.
 
-This research aims to evaluate the possibility to use data in superposition to evaluate a classifier.
-We use a Quantum Binary Neural Network (QBNN)~\cite{fawaz2019training}, by checking whether all the inputs are correctly
-classified by using Deutch-Josza's approach.
-We adopt the hypothesis of once having a QBNN we use it as the oracle of the Deutch - Josza's algorithm.
+This research aims to evaluate the possibility to use data in superposition to evaluate a given Quantum Binary Neural Networks architecture.
+We use a Quantum Binary Neural Network
+(QBNN)~\cite{fawaz2019training}, by checking whether all the inputs are correctly classified or not using Deutch-Josza's approach.
+We adopt the hypothesis of once having a QBNN. We apply it as the oracle of the Deutch - Josza's algorithm.
 The following sections are
 
 Section~\ref{sec:qc}: gives an introduction to quantum computation
@@ -129,8 +128,8 @@ When both vectors are not null we say that the qubit is in \textit{superposition
 \(|0\rangle\) and \(|1\rangle\) are represented simultaneously.
 It can be done with only one qubit or several \textit{n} qubits at once what is called
 \textit{superposition of n qubits}~\cite{yanofsky2008quantum,rieffel2014quantum}.
-When we try to handle with a qubit in superposition or not to determine its state using a measurement quantum operator
-we make the qubit collapse to one of the state \(|0\rangle\) or \(|1\rangle\) and we call that
+When we try to handle with a qubit in superposition to determine its state, we use a measurement quantum operator
+making the qubit collapse to one of the state \(|0\rangle\) or \(|1\rangle\) and we call that
 \textit{measurement}~\cite{yanofsky2008quantum,rieffel2014quantum}.
 
 \subsection{Quantum Gates}\label{subsec:quantum-gates}
@@ -256,7 +255,7 @@ It can be achieved using a Toffoli and two not gates.\footnote{The Toffoli gate 
 two control qubits and one target~\cite{yanofsky2008quantum}.}
 This form when we apply the weights and the activation function we will obtain the accuracy entangled with which input
 making a possible an evaluation based on the original paper proposal.
-Then \(|\psi_2\rangle\) is given by:
+Then \(|\psi_2\rangle\) is given by equantion (5).
 
 \begin{equation}
 |\psi_2\rangle = \frac{1}{2}(|00\rangle|001\rangle + |00\rangle|010\rangle + |00\rangle|100\rangle + |00\rangle|110\rangle)
@@ -268,7 +267,7 @@ Then \(|\psi_2\rangle\) is given by:
 The oracle that we are considering in this step is our neuron implementation of two inputs and two weights.
 Thus we then apply the weights to every input which are in superposition.
 Differently of~\cite{fawaz2019training} proposal we choose a single set of two qubits to be applied in this example its 11.
-The result obtained is the state $|\psi_3\rangle$ shown below
+The result obtained is the state $|\psi_3\rangle$ shown in equation (6).
 
 % modificar explicação
 \begin{equation}
@@ -339,12 +338,12 @@ If we have 00 with 100\% it indicates that the function is constant.
   \end{equation}
   The inputs are represented in a binary form 1 and 0 for inputs 1 and -1 respectively.
   The inputs are three  $(x_1, x_2, x_3)$ and the expected result.
-  The expected outcome can be loaded using the mct function available at qiskit.
+  The expected outcome can be loaded using the Multiple-Control Toffoli (MCT) gate\footnote{The Multiple-Control Toffoli
+  follows the same ideia of the original CNot gate, but its generally used when we have more than two control qubits.} and Not gates available at qiskit.
 
 \subsection{Quantum Neuron}\label{subsec:quantum-neuron}
   Now differently of~\cite{fawaz2019training} approach, we apply an specific set of weight to the inputs using the
-  Multiple-Control Toffoli (MCT) gate\footnote{The Multiple-Control Toffoli follows the same ideia of the original
-  CNot gate, but its generally used when we have more than two control qubits.} and Not Gates.
+  anti-Cnot gates.
   At this step we must apply the activation function that is defined as the majority function.
  This function consists of given 1 if a binary inputs has more ones than zeros.
   Such process is done for every quantum neuron in the QBNN~\cite{fawaz2019training} proposal.
@@ -370,7 +369,7 @@ If we have 00 with 100\% it indicates that the function is constant.
     We used the qiskit API~\cite{Qiskit} for the implementation of the QBNN algorithm.
     Further, we test all the possibility of 8 binary weights resulting in 256 simulations.
     The reverse operation explained in the last section is achieved applying the same operation in the reverse order.
-    The figures 3 and 4 shows the relation of each weight (in the decimal representation)
+    The figures 3 and 4 shows the relation of each weight (in the decimal representation).
 
     \begin{figure}[h!]
     \centering
@@ -388,22 +387,18 @@ If we have 00 with 100\% it indicates that the function is constant.
 
 \section{Discussion}\label{sec:discussion}
 
-The experiments show that it was possible to reach an evaluation method capable to yield important information about the
-hits and misses of a given quantum neural network architecture rapidly.
-The information provided shows us the architecture that produces 100\% misses and 100\%. The distinction between both outputs
-can be made extracting the information about the sign of the \(|00\dots0\rangle\) state at the end, due the
-equation \((-1)^{f(x)}|x\rangle\).
-If we find a positive sign, then we know that the architecture produced a 100\% misses and when negative sign is found the
-opposite is true.
-This kind of verification can be easily accomplished changing measurement operator to Pauli-Y.
+The experiments show that it was possible to reach an enhanced evaluation method. It is capable of yielding important information about hits and misses a specific quantum neural network architecture, quickly.
+The information provided shows us the architecture that produces 100\% misses or 100\% hits.
+The distinction between them can be made extracting the information about the sign of the \(|00\dots0\rangle\) state at the end of the circuit.
+Due to the equation \((-1)^{f(x)}|x\rangle\) a positive sign means 100\% misses and a negative one mean hits for all inputs.
+The verification can be easily accomplished changing measurement operator to Pauli-Y.
 Besides, the method achieved is also cost less compared with the original approach.
-We reduced the number of used qubits from more than 14\cite{fawaz2019training} to 12 and implemented a much less costly
-evaluation algorithm in therm of required operations.
-Those improvement might be important considering the limitation of today's quantum computers\cite{fawaz2019training}.
+We reduced the number of used qubits from more than 14~\cite{fawaz2019training} to 12 and implemented a much less costly evaluation algorithm in term of required operations.
+Those improvements might be important considering the limitation of today's quantum computers\cite{fawaz2019training}.
 
 \section{Conclusion}\label{sec:conclusion}
 
-  In this work, we presented an possible method to extract probabilistic information about the accuracy of the
+  In this work, we presented a possible method to extract probabilistic information about the accuracy of the
   Quantum Binary Neural Networks with a single call of the classifier.
   Based on the results, it is possible to verify that the Deutsch - Jozsa's algorithm would be a good option in terms
   of a rapid evaluation.
