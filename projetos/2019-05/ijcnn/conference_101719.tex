@@ -210,6 +210,18 @@ superposition of many states as follows.
      The probability of obtaining \(z=0\) indicates the probability of our function be constant.}
  \end{figure}
 
+\section{Quantum Binary Neural Networks}\label{sec:quantum-binary-neural-networks}
+
+The original QBNN proposed by~\cite{fawaz2019training} holds two quantum neuron layers.
+The first one holds two neurons, while the second takes a single quantum neuron that produces the final output.
+The first layer receives three binary input 1 and -1 denoted as one and zero respectively,
+besides, we have a combination of 8 weights in superposition resulting in 256 combinations.
+Then, we have the inputs and weights multiplication using an anti-cnot gate.
+Thus, the activation function is applied by the \textit{majority function} yielding one if more than half of the inputs are one and 0 otherwise.
+They shall feed the second neuron layer doing the same passed procedure producing the final output.
+Finally, the optimization process uses an amplitude amplification algorithm that picks the best weight combination.
+It utterly raises the probability of good weights to remain and decreases the probability of the bad ones.
+
 \section{Quantum Neuron Evaluation}\label{sec:quantum-neuron-evaluation}
 
 \subsection{Initial Considerations}\label{subsec:initial-considerations}
@@ -405,7 +417,8 @@ In this work, we presented an enhanced QBNN evaluation method able to handle the
 Besides, we reduced the QBNN execution cost by removing the amplitude amplification of the original~\cite{fawaz2019training}
 method and introducing a must efficient evaluation algorithm.
 As the first attempt to use Deutsch - Jozsa's algorithm to evaluate a QBNN some question must be addressed such as the
-noise influence in a real quantum device and the evaluation in the case of a QBNN that is neither constant nor balanced.
+noise influence in a real quantum device.
+We also could investigate the possibility of use the weights also in superposition and performs an directly selection.
 
 \bibliographystyle{unsrt}
 \bibliography{references}
