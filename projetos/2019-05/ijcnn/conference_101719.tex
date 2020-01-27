@@ -108,8 +108,7 @@ Classical computation relies on the use of the smallest unit of information know
 0 or 1.
 While that, in the quantum computation we have quantum bits known as qubits, those can
 assume the values of 0 and 1 simultaneously.
-That and other quantum properties give us the abilities that cannot be achieved in the classical computation.
-Also, these new tools make us able to deal better with problems of the classical world that are difficult
+These new tools make us able to deal with problems of the classical world that are difficult
 to solve with today's classical algorithms~\cite{russon_2017,deutsch1992rapid}.
 
 \subsection{Fundamentals}\label{subsec:fundamentals}
@@ -387,23 +386,26 @@ If we have 00 with 100\% it indicates that the function is constant.
 
 \section{Discussion}\label{sec:discussion}
 
-The experiments show that it was possible to reach an enhanced evaluation method. It is capable of yielding important information about hits and misses a specific quantum neural network architecture, quickly.
+The experiments point out that it was possible to reach an enhanced QBNN evaluation method.
+It is capable of yielding relevant information about hits and misses of a specific quantum neural network architecture,
+quickly.
 The information provided shows us the architecture that produces 100\% misses or 100\% hits.
-The distinction between them can be made extracting the information about the sign of the \(|00\dots0\rangle\) state at the end of the circuit.
+The distinction between them can be made extracting the information about the sign of the \(|00\dots0\rangle\) state at
+the end of the circuit.
 Due to the equation \((-1)^{f(x)}|x\rangle\) a positive sign means 100\% misses and a negative one mean hits for all inputs.
 The verification can be easily accomplished changing measurement operator to Pauli-Y.
 Besides, the method achieved is also cost less compared with the original approach.
-We reduced the number of used qubits from more than 14~\cite{fawaz2019training} to 12 and implemented a much less costly evaluation algorithm in term of required operations.
-Those improvements might be important considering the limitation of today's quantum computers\cite{fawaz2019training}.
+We reduced the number of used qubits from more than 14~\cite{fawaz2019training} to 12 and implemented a much less costly
+evaluation algorithm in term of required operations.
+Those improvements might be significant considering the limitation of today's quantum computers\cite{fawaz2019training}.
 
 \section{Conclusion}\label{sec:conclusion}
 
-  In this work, we presented a possible method to extract probabilistic information about the accuracy of the
-  Quantum Binary Neural Networks with a single call of the classifier.
-  Based on the results, it is possible to verify that the Deutsch - Jozsa's algorithm would be a good option in terms
-  of a rapid evaluation.
-  As the first attempt to use Deutsch - Jozsa's algorithm to evaluate a QBNN some question must be addressed such as the
-  noise influence in a real quantum device and the evaluation in the case of a QBNN that is neither constant nor balanced.
+In this work, we presented an enhanced QBNN evaluation method able to handle the outputs of a QBNN rapidly.
+Besides, we reduced the QBNN execution cost by removing the amplitude amplification of the original method and introducing
+a must efficient evaluation algorithm.
+As the first attempt to use Deutsch - Jozsa's algorithm to evaluate a QBNN some question must be addressed such as the
+noise influence in a real quantum device and the evaluation in the case of a QBNN that is neither constant nor balanced.
 
 \bibliographystyle{unsrt}
 \bibliography{references}
