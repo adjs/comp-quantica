@@ -390,20 +390,20 @@ The experiments point out that it was possible to reach an enhanced QBNN evaluat
 It is capable of yielding relevant information about hits and misses of a specific quantum neural network architecture,
 quickly.
 The information provided shows us the architecture that produces 100\% misses or 100\% hits.
-The distinction between them can be made extracting the information about the sign of the \(|00\dots0\rangle\) state at
-the end of the circuit.
+They can be distinguished extracting the information about the sign of the \(|00\dots0\rangle\) state at the end of the circuit.
 Due to the equation \((-1)^{f(x)}|x\rangle\) a positive sign means 100\% misses and a negative one mean hits for all inputs.
-The verification can be easily accomplished changing measurement operator to Pauli-Y.
-Besides, the method achieved is also cost less compared with the original approach.
-We reduced the number of used qubits from more than 14~\cite{fawaz2019training} to 12 and implemented a much less costly
-evaluation algorithm in term of required operations.
-Those improvements might be significant considering the limitation of today's quantum computers\cite{fawaz2019training}.
+The verification can be easily accomplished changing measurement operator to Pauli-Y\@.
+Furthermore, We reduced the number of qubits from more than 14 to 12 and implemented a much less costly evaluation
+algorithm in term of required operations.
+It might be significant considering the limitation of today's quantum computers\cite{fawaz2019training}.
+
+
 
 \section{Conclusion}\label{sec:conclusion}
 
 In this work, we presented an enhanced QBNN evaluation method able to handle the outputs of a QBNN rapidly.
-Besides, we reduced the QBNN execution cost by removing the amplitude amplification of the original method and introducing
-a must efficient evaluation algorithm.
+Besides, we reduced the QBNN execution cost by removing the amplitude amplification of the original~\cite{fawaz2019training}
+method and introducing a must efficient evaluation algorithm.
 As the first attempt to use Deutsch - Jozsa's algorithm to evaluate a QBNN some question must be addressed such as the
 noise influence in a real quantum device and the evaluation in the case of a QBNN that is neither constant nor balanced.
 
