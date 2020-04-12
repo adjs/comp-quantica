@@ -1,13 +1,13 @@
 ## matplotlib to see the circuits
 # matplotlib inline
 ## qiskit standart
-from qiskit import *
-import numpy as np
-from random import randint
-import sys
-from util import get_possible_inputs, get_results
-from matplotlib import pyplot as plt
 import json
+import sys
+
+from matplotlib import pyplot as plt
+from qiskit import *
+
+from util import get_results
 
 if not sys.warnoptions:
     import warnings
@@ -130,7 +130,7 @@ def load_data(data, q_inputs, q_output, unload=False):
     unload: Decides if the data must be or not unloaded
     returns: a quantum circuit with the data loaded.
     """
-    
+
     load_circuit = QuantumCircuit(q_inputs, q_output)
 
     if not unload:
@@ -150,8 +150,11 @@ def load_data(data, q_inputs, q_output, unload=False):
     return load_circuit
 
 
-def run_experiment(problem, name='Experiment'):
+def weights_update(theta, circuit, step_weight):
+    circuit.rx(theta, step_weight)
 
+
+def run_experiment(problem, name='Experiment'):
     """
     Executes the experiment for a given dataset and saves the results
     :param problem: an array containing an vector with the inputs besides the label [input, label]
@@ -160,26 +163,36 @@ def run_experiment(problem, name='Experiment'):
     """
     experiments = {'problem': name}
     trial = 0
-    for combination in get_possible_inputs(8):
+    # Initializing the registers with |0>
+
+    for step in range(8):
         trial += 1
 
         print('Trial ', trial, end='')
         print('-' * 50)
-        print('Testing weights: ', combination)
+        print('Testing weights: ', step)
 
-        # Initializing the registers with |0>
-        qW = QuantumRegister(8, name='weights')
         qI = QuantumRegister(3, name='inputs')
         qO = QuantumRegister(1, name='output')
+        qW = QuantumRegister(8, name='weights')
+        circuit = QuantumCircuit(qW, qI, qO)
 
         # Building the circuit
-        circuit = QuantumCircuit(qW, qI, qO)
 
         # Loading the data
         load_circuit = load_data(problem, qI, qO)
         circuit += load_circuit
-
-        feed_foward(circuit, qW, qI, qO, combination)
+        weights = [
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0
+        ]
+        feed_foward(circuit, qW, qI, qO, weights)
 
         unload_circuit = load_data(problem, qI, qO, True)
 
@@ -187,15 +200,16 @@ def run_experiment(problem, name='Experiment'):
         circuit += unload_circuit
         circuit.barrier()
         result = get_results(circuit, qI, shots=1024)
-
+        print(result)
         experiments[trial] = {'outcomes': result,
-                              'weights': combination}
+                              'weights': step}
         print()
         print('-' * 50)
 
-    file_name = name.replace(' ', '_').lower()
-    with open(file_name + '.json', 'w', encoding='utf-8') as f:
-        json.dump(experiments, f, ensure_ascii=False, indent=4)
+        circuit.draw(filename='circuit')
+        file_name = name.replace(' ', '_').lower()
+        with open(file_name + '.json', 'w', encoding='utf-8') as f:
+            json.dump(experiments, f, ensure_ascii=False, indent=4)
 
     # -----------------------------------------
 
@@ -214,10 +228,10 @@ def get_w_prob(filename):
 
             if int(qub) is 0:
                 has_0 = True
-                if float(prob.replace('%', ''))/100 is 1.0:
+                if float(prob.replace('%', '')) / 100 is 1.0:
                     print(prob)
                     print(result['weights'])
-                w_prob_0.append((decimal_weight, float(prob.replace('%', ''))/100))
+                w_prob_0.append((decimal_weight, float(prob.replace('%', '')) / 100))
 
         if not has_0:
             w_prob_0.append((decimal_weight, 0))
@@ -242,8 +256,8 @@ def graphs(data):
 def main():
     prob_1 = [
         [0, 0, 0, 0],
-        [0, 0, 1, 1],
-        [0, 1, 0, 0],
+        [0, 0, 1, 0],
+        [0, 1, 0, 1],
         [0, 1, 1, 0],
         [1, 0, 0, 1],
         [1, 0, 1, 0],

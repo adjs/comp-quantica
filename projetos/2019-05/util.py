@@ -54,7 +54,6 @@ def get_results(circ, output, backend=None, shots=1024, circ_name='CIRCUIT'):
     job_sim = execute(experiments=circ, backend=backend, shots=shots)
 
     result = job_sim.result()
-
     count = result.get_counts(circ)
 
     qub_chance = []

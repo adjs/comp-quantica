@@ -5,7 +5,7 @@ PQM class for probabilistic quantum memories
 # pylint: disable=no-member
 
 from qiskit import QuantumCircuit, QuantumRegister, ClassicalRegister, BasicAer, execute
-import sympy as sp
+import math as sp
 
 
 class PQM:
@@ -27,7 +27,7 @@ class PQM:
     def load_data(self, data=None):
         ''' memory initialization'''
 
-        params = (2**self._size) * [0]
+        params = (2 ** self._size) * [0]
 
         if data is None:
             params[0] = 1
@@ -41,8 +41,9 @@ class PQM:
 
         self._circuit.initialize(params, self._memory)
 
-    def recover(self, input_pattern=None):
+    def recover(self, input_pattern=None, t=0.044):
         '''
+        :param t: Parametric Value
         :param input_pattern: (size,) array of 0s and 1s
                               input pattern for recovering algorithm
         :return circuit:      quantum circuit of PQM recovering algorithm
@@ -53,12 +54,12 @@ class PQM:
                 if value == 1:
                     self._circuit.x(self._memory[k])
         for k in range(self._size):
-            self._circuit.u1(sp.pi / 2 * self._size, self._memory[k])
+            self._circuit.u1(sp.pi / (2 * self._size * t), self._memory[k])
 
         # initialize auxiliary quantum bit |c>
         self._circuit.h(self._ancillary[0])
         for k in range(self._size):
-            self._circuit.cu1(- sp.pi / self._size, self._ancillary[0], self._memory[k])
+            self._circuit.cu1(- sp.pi / (self._size * t), self._ancillary[0], self._memory[k])
         self._circuit.h(self._ancillary[0])
 
         self._circuit.measure(self._ancillary[0], self._bit[0])
@@ -85,11 +86,17 @@ class PQM:
         str_circuit = self._circuit.draw()
         return str(str_circuit)
 
+
 if __name__ == '__main__':
-    pqm = PQM(2)
+    mem_2 = [[1, 1, 1, 1, 0, 1, 0, 1, 1, 0], [1, 1, 0, 0, 0, 1, 0, 1, 0, 1], [1, 1, 0, 1, 0, 1, 0, 0, 0, 1],
+             [1, 1, 1, 1, 1, 0, 0, 1, 0, 1]]
+    mem_1 = [[0, 1, 1, 0, 0, 1, 0, 1, 0, 1], [0, 1, 0, 1, 0, 1, 0, 1, 0, 1], [0, 1, 1, 1, 0, 1, 0, 0, 0, 1],
+             [0, 0, 1, 1, 0, 1, 0, 1, 0, 1]]
+
+    pqm = PQM(len(mem_2[0]))
     print(pqm.__dict__)
-    pqm.load_data([[0, 0], [0, 1]])
-    pqm.recover()
+    pqm.load_data(mem_2)
+    pqm.recover([0, 1, 1, 1, 0, 1, 0, 1, 0, 1])
     out = pqm.run(8192)
-    print(str(out['0']/8192) + '%')
+    print(str(out['0'] * 100 / 8192) + '%')
     print(pqm)
