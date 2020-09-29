@@ -50,7 +50,7 @@ def toffoli():
 
 
 
-    circuito = qiskit.QuantumRegister(controles, alvo)
+    circuito = qiskit.QuantumCircuit(controles, alvo)
 
     #------------------------
     # Seu código aqui
