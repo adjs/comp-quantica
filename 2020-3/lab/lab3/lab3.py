@@ -11,3 +11,11 @@ def qinv_media(n):
     '''
     circuito = qiskit.QuantumCircuit(n)
     return circuito
+
+def oraculo_trivial(n, k):
+    
+    return circuito_oraculo
+
+def grover(oraculo):
+    
+    return k
